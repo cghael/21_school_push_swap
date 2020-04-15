@@ -6,7 +6,8 @@
 
 int		main(int argc, char *argv[])
 {
-	ft_check_args(argc, argv);
-	write(1, '1', 1);
+	t_elem	*stack_a;
+	stack_a = ft_check_n_write_args(argc, argv);
+	write(1, "OK\n", 3);
 	return (0);
 }

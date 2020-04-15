@@ -6,14 +6,20 @@
 
 static void	ft_check_args_number(int argc)
 {
-	if (argc != 2)
+	if (argc < 2)
 	{
 		ft_putstr(USAGE);
 		exit (EXIT_CODE);
 	}
 }
 
-void		ft_check_args(int argc, char *argv[])
+t_elem		*ft_check_n_write_args(int argc, char **argv)
 {
+	t_elem *stack;
 	ft_check_args_number(argc);
+	if (argc == 2)
+		stack = ft_one_agr(argv);
+	else
+		stack = ft_multi_arg(argv);
+	return (stack);
 }
