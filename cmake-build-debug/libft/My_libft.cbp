@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="My_libft"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\libft\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="E:/School21/push_swap/cmake-build-debug/libft"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libft">
+				<Option output="E:/School21/push_swap/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/School21/push_swap/cmake-build-debug/libft"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/School21/push_swap/libft/../includes"/>
+					<Add directory="E:/School21/push_swap/libft"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libft/fast">
+				<Option output="E:/School21/push_swap/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/School21/push_swap/cmake-build-debug/libft"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/School21/push_swap/libft/../includes"/>
+					<Add directory="E:/School21/push_swap/libft"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/School21/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="E:/School21/push_swap/libft/includes">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/includes/ft_printf.h">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/includes/libft.h">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_abs.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_add_dig_to_int.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_add_specials.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_atoi.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_b.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_buff_finded_percent.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_buff_free.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_buff_no_percent.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_buff_print_free.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_buff_print_n_len.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_buff_treated_percent.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_bzero.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_bzero_buf_n_set_pointers.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_c.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_count_float.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_delnode.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_di.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_dollar_arg.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_dollar_treat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_error_exit.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_exeption_treat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_f.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_final_print_n_free_rt_len.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_find_digit.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_find_in_def.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_get_divisional.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_get_integer.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_get_next_line.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_i64toa_base.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_integer_to_str.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_isalnum.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_isalpha.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_isascii.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_isbigger.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_isdigit.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_islower.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_isprint.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_isspace.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_isupper.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_itoa.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_lstadd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_lstdel.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_lstdelone.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_lstiter.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_lstlen.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_lstmap.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_lstnew.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_memalloc.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_memccpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_memchr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_memcmp.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_memcpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_memdel.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_memmove.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_memset.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_num_to_str.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_o.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_p.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_parse_flags.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_parse_spec.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_parsing.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_percent_treat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_precision_treat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_printf.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_putchar.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_putchar_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_putendl.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_putendl_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_putnbr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_putnbr_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_putstr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_putstr_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_round_float.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_s.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strcat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strchr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strclr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strcmp.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strcpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strcpy_dptp.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strdel.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strdup.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strequ.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_striter.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_striteri.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strjoin.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strlcat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strlen.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strmap.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strmapi.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strncat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strncmp.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strncpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strnequ.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strnew.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strnlen.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strnstr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strpcpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strrchr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strsplit.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strstr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strsub.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_strtrim.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_to_pow.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_tolower.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_toupper.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_u.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_u64toa_base.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_width_n_precision.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_width_treat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/ft_x.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/src/g_ft_choose_func.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="E:/School21/push_swap/libft/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libft\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
