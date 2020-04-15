@@ -2,7 +2,7 @@
 // Created by Anton on 04.04.2020.
 //
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	ft_check_args_number(int argc)
 {

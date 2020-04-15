@@ -2,7 +2,7 @@
 // Created by Anton on 04.04.2020.
 //
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int		main(int argc, char *argv[])
 {
