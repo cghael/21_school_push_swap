@@ -52,7 +52,9 @@ static void		ft_check_str(const char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] != '-' && str[i] != ' ' && (str[i] < 48 || str[i] > 57))
+		if ((str[i] == '-' && (str[i + 1] < 48 || str[i + 1] > 57))\
+			|| (i > 0 && str[i] == '-' && str[i - 1] != ' ')\
+			|| (str[i] != ' ' && str[i] != '-' && (str[i] < 48 || str[i] > 57)))
 			ft_error_exit(ERR_ARGS, NULL);
 		i++;
 	}
