@@ -43,5 +43,6 @@ t_elem					*ft_check_n_write_args(int argc, char **argv);
 t_elem					*ft_one_agr(char **argv);
 t_elem					*ft_multi_arg(char **argv);
 void					ft_new_elem_add(t_elem **stack, int numb);
+void					ft_free_stack(t_elem *stack);
 
 #endif //PUSH_SWAP_H
