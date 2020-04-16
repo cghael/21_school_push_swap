@@ -29,8 +29,8 @@ typedef struct			s_elem
 {
 	int 				value;
 	int					index;
-	struct s_stack		*next;
-	struct s_stack		*back;
+	struct s_elem		*next;
+	struct s_elem		*back;
 }						t_elem;
 
 /*
@@ -42,5 +42,6 @@ typedef struct			s_elem
 t_elem					*ft_check_n_write_args(int argc, char **argv);
 t_elem					*ft_one_agr(char **argv);
 t_elem					*ft_multi_arg(char **argv);
+void					ft_new_elem_add(t_elem **stack, int numb);
 
 #endif //PUSH_SWAP_H

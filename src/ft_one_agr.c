@@ -37,7 +37,7 @@ static t_elem	*ft_write_args(char *str)
 		if (*str != ' ')
 		{
 			numb = ft_get_int(&str);
-//			ft_new_elem_add(stack, numb);
+			ft_new_elem_add(&stack, numb);
 		}
 		else
 			str++;
@@ -64,7 +64,7 @@ t_elem			*ft_one_agr(char **argv)
 {
 	t_elem *stack;
 
-	stack = NULL;
 	ft_check_str(argv[1]);
 	stack = ft_write_args(argv[1]);
+	return (stack);
 }
