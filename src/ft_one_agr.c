@@ -11,10 +11,17 @@ static int		ft_get_int(char **str)
 
 	numb = ft_atoi(*str);
 	tmp = numb;
-	while (tmp)
-	{
+	if (tmp < 0)
 		(*str)++;
-		tmp = tmp / 10;
+	if (tmp == 0)
+		(*str)++;
+	else
+	{
+		while (tmp)
+		{
+			(*str)++;
+			tmp = tmp / 10;
+		}
 	}
 	return (numb);
 }
@@ -45,8 +52,8 @@ static void		ft_check_str(const char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] != ' ' && (str[i] < 48 || str[i] > 57))
-			ft_error_exit(ERR_ARGS,NULL);
+		if (str[i] != '-' && str[i] != ' ' && (str[i] < 48 || str[i] > 57))
+			ft_error_exit(ERR_ARGS, NULL);
 		i++;
 	}
 }
