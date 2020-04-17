@@ -11,7 +11,8 @@
 
 # define USAGE "usage: ./checker target_file\n"
 # define EXIT_CODE 1
-# define ERR_ARGS "Error args, please use only numbers and spaces.\n"
+# define ERR_ARGS "Error. Please, use only numbers and spaces.\n"
+# define ERR_UNIQ_ARGS "Error. Please, enter UNIQUE args and try again.\n"
 # define NOT_A_NUMBER(x) (x < 48 || x > 57)
 
 

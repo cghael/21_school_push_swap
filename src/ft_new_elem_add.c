@@ -39,7 +39,7 @@ void		ft_new_elem_add(t_elem **stack, int numb)
 	new = malloc(sizeof(t_elem));
 	if (new == NULL)
 	{
-		ft_free_stack(stack);
+		ft_free_stack(*stack);
 		ft_error_exit("Error malloc in ft_new_elem_add\n", new);
 	}
 	new->value = numb;
