@@ -21,6 +21,7 @@ t_elem		*ft_check_n_write_args(int argc, char **argv)
 	if (argc == 2)
 		stack = ft_one_agr(argv);
 	else
-		stack = ft_multi_arg(argv);
+		stack = ft_multi_arg(argv, argc);
+	//TODO проверить, что числа уникальны и индексы проставить
 	return (stack);
 }

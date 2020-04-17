@@ -12,6 +12,7 @@
 # define USAGE "usage: ./checker target_file\n"
 # define EXIT_CODE 1
 # define ERR_ARGS "Error args, please use only numbers and spaces.\n"
+# define NOT_A_NUMBER(x) (x < 48 || x > 57)
 
 
 /*
@@ -41,7 +42,7 @@ typedef struct			s_elem
 
 t_elem					*ft_check_n_write_args(int argc, char **argv);
 t_elem					*ft_one_agr(char **argv);
-t_elem					*ft_multi_arg(char **argv);
+t_elem					*ft_multi_arg(char **argv, int argc);
 void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 
