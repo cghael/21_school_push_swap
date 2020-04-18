@@ -15,6 +15,10 @@
 # define ERR_UNIQ_ARGS		"Error. Please, enter UNIQUE args and try again.\n"
 # define NOT_A_NUMBER(x)	(x < 48 || x > 57)
 
+# define STACK_SORTED 1
+# define STACK_NOT_SORTED 0
+
+
 
 /*
 ** -------------------------- External Headers ---------------------------------
@@ -31,9 +35,16 @@ typedef struct			s_elem
 {
 	int 				value;
 	int					index;
+	int					qnty;
 	struct s_elem		*next;
 	struct s_elem		*back;
 }						t_elem;
+
+typedef struct		s_order
+{
+	char			command[4];
+	struct s_order	*next;
+}					t_order;
 
 /*
 ** -----------------------------------------------------------------------------
@@ -46,5 +57,8 @@ t_elem					*ft_one_agr(char **argv);
 t_elem					*ft_multi_arg(char **argv, int argc);
 void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
+
+t_order					*ft_sort_stack_a(t_elem *stack_a);
+int						ft_check_stack_sorted(t_elem *stack);
 
 #endif //PUSH_SWAP_H

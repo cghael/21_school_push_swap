@@ -46,5 +46,6 @@ void		ft_new_elem_add(t_elem **stack, int numb)
 	new->next = NULL;
 	new->back = NULL;
 	new->index = 0;
+	new->qnty = 0;
 	ft_add_new_to_stack(stack, new);
 }

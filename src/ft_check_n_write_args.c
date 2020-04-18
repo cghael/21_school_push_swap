@@ -74,6 +74,7 @@ t_elem			*ft_check_n_write_args(int argc, char **argv)
 	else
 		stack = ft_multi_arg(argv, argc);
 	ft_check_args_uniq(stack);
+	stack->qnty = stack->back->index + 1;
 	stack = ft_elem_index(stack);
 	return (stack);
 }
