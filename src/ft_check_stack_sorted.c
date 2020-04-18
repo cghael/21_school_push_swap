@@ -12,6 +12,8 @@ int			ft_check_stack_sorted(t_elem *stack)
 
 	tmp = stack;
 	counter = stack->qnty;
+	if (stack->qnty == 1)
+		return (1);
 	while (counter)
 	{
 		checked = tmp->next;
