@@ -65,5 +65,7 @@ void					ft_new_order_add(t_order **cmd_stack, char *str);
 void					ft_free_cmd_stack(t_order *cmd_stack);
 
 void					ft_print_operations(t_order *cmd_stack);
+void					ft_free_push_swap_mem(t_order *cmd_stack,\
+												t_elem *stack_a);
 
 #endif //PUSH_SWAP_H

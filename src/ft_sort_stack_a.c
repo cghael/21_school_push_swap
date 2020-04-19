@@ -15,5 +15,6 @@ t_order			*ft_sort_stack_a(t_elem *stack_a)
 		ft_new_order_add(&cmd_stack, "ssa"); //TODO del
 		ft_putstr("NOT_SORTED\n"); //TODO del
 	}
+	ft_putstr("SORTED\n\n"); //TODO del
 	return (cmd_stack);
 }
