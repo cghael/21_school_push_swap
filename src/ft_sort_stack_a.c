@@ -11,6 +11,8 @@ t_order			*ft_sort_stack_a(t_elem *stack_a)
 	cmd_stack = NULL;
 	if (STACK_NOT_SORTED == ft_check_stack_sorted(stack_a))
 	{
+		ft_new_order_add(&cmd_stack, "_sa"); //TODO del
+		ft_new_order_add(&cmd_stack, "ssa"); //TODO del
 		ft_putstr("NOT_SORTED\n"); //TODO del
 	}
 	return (cmd_stack);
