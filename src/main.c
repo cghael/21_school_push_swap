@@ -14,7 +14,7 @@ int			main(int argc, char *argv[])
 	ft_print_operations(cmd_stack);
 	ft_free_push_swap_mem(cmd_stack, stack_a);
 
-	write(1, "----------\n", 11);
-	write(1, "DONE!\n", 6);
+	write(1, "----------\n", 11); //todo del
+	write(1, "DONE!\n", 6); //todo del
 	return (0);
 }
