@@ -48,4 +48,5 @@ void		ft_new_order_add(t_order **cmd_stack, char *str)
 	ft_bzero(new, sizeof(t_order));
 	new = ft_write_command(new, str);
 	ft_add_new_to_order(cmd_stack, new);
+	(*cmd_stack)->step_numb++;
 }

@@ -8,7 +8,15 @@ set(SOURCES src/main.c
         src/ft_one_agr.c
         src/ft_multi_arg.c
         src/ft_new_elem_add.c
-        src/ft_free_stack.c src/ft_sort_stack_a.c src/ft_check_stack_sorted.c src/ft_print_operations.c src/ft_new_order_add.c src/ft_free_cmd_stack.c src/ft_free_push_swap_mem.c)
+        src/ft_free_stack.c
+        src/ft_sort_stack_a.c
+        src/ft_check_stack_sorted.c
+        src/ft_print_operations.c
+        src/ft_new_order_add.c
+        src/ft_free_cmd_stack.c
+        src/ft_free_push_swap_mem.c
+        src/ft_pa_pb.c
+        src/ft_print_stack_step.c)
 
 include_directories(includes)
 include_directories(ft_printf/includes)

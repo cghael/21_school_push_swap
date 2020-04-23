@@ -10,7 +10,6 @@ void		ft_free_stack(t_elem *stack)
 
 	tmp = stack->back;
 	tmp->next = NULL;
-	free(tmp);
 	while (stack)
 	{
 		tmp = stack;

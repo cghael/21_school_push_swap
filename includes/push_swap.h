@@ -44,6 +44,7 @@ typedef struct		s_order
 {
 	char			command[4];
 	struct s_order	*next;
+	int				step_numb;
 }					t_order;
 
 /*
@@ -67,5 +68,11 @@ void					ft_free_cmd_stack(t_order *cmd_stack);
 void					ft_print_operations(t_order *cmd_stack);
 void					ft_free_push_swap_mem(t_order *cmd_stack,\
 												t_elem *stack_a);
+
+void					ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, \
+								t_elem **dst_stack);
+
+void					ft_print_stack_step(t_elem *stack_a, t_elem *stack_b);
+
 
 #endif //PUSH_SWAP_H
