@@ -46,7 +46,7 @@ static t_elem	*ft_delete_first_elem(t_elem **src_stack)
 }
 
 void			ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, \
-							t_elem **dst_stack)
+							t_elem **dst_stack, char dst_ch)
 {
 	t_elem *tmp;
 
@@ -55,5 +55,8 @@ void			ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, \
 		tmp = ft_delete_first_elem(src_stack);
 		ft_add_elem_on_top(tmp, dst_stack);
 	}
-	ft_new_order_add(cmd_stack, "_pb");
+	if (dst_ch == 'a')
+		ft_new_order_add(cmd_stack, "_pa");
+	else
+		ft_new_order_add(cmd_stack, "_pb");
 }

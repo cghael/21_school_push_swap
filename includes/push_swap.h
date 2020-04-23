@@ -36,6 +36,7 @@ typedef struct			s_elem
 	int 				value;
 	int					index;
 	int					qnty;
+	char				name;
 	struct s_elem		*next;
 	struct s_elem		*back;
 }						t_elem;
@@ -70,9 +71,10 @@ void					ft_free_push_swap_mem(t_order *cmd_stack,\
 												t_elem *stack_a);
 
 void					ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, \
-								t_elem **dst_stack);
-
+								t_elem **dst_stack, char dst_ch);
+void					ft_ra_rb(t_order **cmd_stack, t_elem **stack, char ch);
 void					ft_print_stack_step(t_elem *stack_a, t_elem *stack_b);
-
+void					ft_push_to_b_after_pivot(t_order **cmd_stack, \
+											t_elem **stack_a, t_elem **stack_b);
 
 #endif //PUSH_SWAP_H
