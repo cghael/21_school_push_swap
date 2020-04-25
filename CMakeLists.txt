@@ -16,7 +16,7 @@ set(SOURCES src/main.c
         src/ft_free_cmd_stack.c
         src/ft_free_push_swap_mem.c
         src/ft_pa_pb.c
-        src/ft_print_stack_step.c src/ft_ra_rb.c src/ft_push_to_b_after_pivot.c)
+        src/ft_print_stack_step.c src/ft_ra_rb.c src/ft_push_to_b_after_pivot.c src/ft_adjust_big_to_small_stack.c src/ft_rra_rrb.c src/ft_find_rotate_side.c src/ft_nearest_bigger_pivot.c)
 
 include_directories(includes)
 include_directories(ft_printf/includes)

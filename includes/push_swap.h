@@ -15,8 +15,12 @@
 # define ERR_UNIQ_ARGS		"Error. Please, enter UNIQUE args and try again.\n"
 # define NOT_A_NUMBER(x)	(x < 48 || x > 57)
 
-# define STACK_SORTED 1
-# define STACK_NOT_SORTED 0
+# define STACK_SORTED		1
+# define STACK_NOT_SORTED	0
+# define ROTATE				1
+# define REVERSE_ROTATE		0
+# define NOT_EXIST			-1
+# define EXIST				1
 
 
 
@@ -73,8 +77,14 @@ void					ft_free_push_swap_mem(t_order *cmd_stack,\
 void					ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, \
 								t_elem **dst_stack, char dst_ch);
 void					ft_ra_rb(t_order **cmd_stack, t_elem **stack, char ch);
+void					ft_rra_rrb(t_order **cmd_stack, t_elem **stack, \
+									char ch);
 void					ft_print_stack_step(t_elem *stack_a, t_elem *stack_b);
 void					ft_push_to_b_after_pivot(t_order **cmd_stack, \
 											t_elem **stack_a, t_elem **stack_b);
+t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
+											t_elem **stack, int index);
+int						ft_find_rotate_side(t_elem *stack, int tmp_index);
+int						ft_nearest_bigger_pivot(t_elem *stack, int pivot);
 
 #endif //PUSH_SWAP_H

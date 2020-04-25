@@ -20,11 +20,11 @@ int			ft_check_stack_sorted(t_elem *stack)
 		while (checked != stack)
 		{
 			if (checked->value < tmp->value)
-				return (0);
+				return (STACK_NOT_SORTED);
 			checked = checked->next;
 		}
 		tmp = tmp->next;
 		counter--;
 	}
-	return (1);
+	return (STACK_SORTED);
 }
