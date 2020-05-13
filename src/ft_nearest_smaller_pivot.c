@@ -21,7 +21,7 @@ static int	ft_check_for_elem_exist(t_elem *stack, int pivot)
 	return (NOT_EXIST);
 }
 
-int			ft_nearest_bigger_pivot(t_elem *stack, int pivot)
+int			ft_nearest_smaller_pivot(t_elem *stack, int pivot)
 {
 	int		rotate_steps;
 	int		reverse_steps;
@@ -30,15 +30,13 @@ int			ft_nearest_bigger_pivot(t_elem *stack, int pivot)
 	rotate_steps = 0;
 	reverse_steps = 0;
 	step_elem = stack;
-	if (NOT_EXIST == ft_check_for_elem_exist(stack, pivot))
-		return (NOT_EXIST);
-	while (step_elem->index <= pivot)
+	while (step_elem->index >= pivot)
 	{
 		step_elem = step_elem->next;
 		rotate_steps++;
 	}
 	step_elem = stack;
-	while (step_elem->index <= pivot)
+	while (step_elem->index >= pivot)
 	{
 		step_elem = step_elem->back;
 		reverse_steps++;

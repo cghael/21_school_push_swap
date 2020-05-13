@@ -12,9 +12,11 @@ t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
 	
 	tmp = *stack; //we think, that stack is sorted from biggest to smallest
 	n = (*stack)->qnty;
+	if (n < 2)
+		return (NULL);
 	while (n)
 	{
-		if (n > 1 && (tmp->index < index && tmp->back->index > index) \
+		if ((tmp->index < index && tmp->back->index > index) \
 			|| (tmp->index < index && tmp->back->index < index \
 			&& tmp->back->index < tmp->index) || (tmp->index > index \
 			&& tmp->back->index > index && tmp->index > tmp->back->index))

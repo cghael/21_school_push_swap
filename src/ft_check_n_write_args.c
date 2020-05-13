@@ -15,6 +15,7 @@ static t_elem	*ft_elem_index(t_elem *stack)
 	{
 		tmp->index = stack->back->index;
 		tmp = tmp->next;
+		tmp->qnty = stack->qnty;
 	}
 	elem_num = tmp->index + 1;
 	while (elem_num)

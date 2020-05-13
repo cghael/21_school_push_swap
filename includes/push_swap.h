@@ -40,6 +40,7 @@ typedef struct			s_elem
 	int 				value;
 	int					index;
 	int					qnty;
+	int					iter;
 	char				name;
 	struct s_elem		*next;
 	struct s_elem		*back;
@@ -74,17 +75,21 @@ void					ft_print_operations(t_order *cmd_stack);
 void					ft_free_push_swap_mem(t_order *cmd_stack,\
 												t_elem *stack_a);
 
-void					ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, \
-								t_elem **dst_stack, char dst_ch);
+void
+ft_pa_pb(
+		t_order **cmd_stack,
+		t_elem **src_stack,
+		t_elem **dst_stack);
 void					ft_ra_rb(t_order **cmd_stack, t_elem **stack, char ch);
 void					ft_rra_rrb(t_order **cmd_stack, t_elem **stack, \
 									char ch);
+void					ft_sa_sb(t_order **cmd_stack, t_elem **stack, char ch);
 void					ft_print_stack_step(t_elem *stack_a, t_elem *stack_b);
-void					ft_push_to_b_after_pivot(t_order **cmd_stack, \
-											t_elem **stack_a, t_elem **stack_b);
+void					ft_push_to_dst_before_pivot(t_order **cmd_stack, \
+										t_elem **src, t_elem **dst, int pivot);
 t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
 											t_elem **stack, int index);
 int						ft_find_rotate_side(t_elem *stack, int tmp_index);
-int						ft_nearest_bigger_pivot(t_elem *stack, int pivot);
+int						ft_nearest_smaller_pivot(t_elem *stack, int pivot);
 
 #endif //PUSH_SWAP_H
