@@ -4,49 +4,57 @@
 
 #include "push_swap.h"
 
-void		ft_move_src_elem_to_dst(t_order **cmd_stack, t_elem **src, \
-										t_elem **dst, t_elem *tmp)
+void		ft_move_src_elem_to_dst(t_order **cmd, t_elem **src, \
+													t_elem **dst, t_elem *tmp)
 {
-	//move tmp elem at the top of src
-	while(*src != tmp) //todo can make faster, first rotate side then rotate
+	while(*src != tmp)
 	{
 		if (ROTATE == ft_find_rotate_side(*src, tmp->index))
-			ft_ra_rb(cmd_stack, src, (*src)->name);
+			ft_ra_rb(cmd, src, (*src)->name);
 		else
-			ft_rra_rrb(cmd_stack, src, (*src)->name);
-		ft_print_stack_step(
-				*src); //TODO del
+			ft_rra_rrb(cmd, src, (*src)->name);
+		ft_print_stack_step(*src, *dst); //TODO del
 	}
-	ft_pa_pb(cmd_stack, src, dst);
-	ft_print_stack_step(
-			*src); //TODO del
+	ft_pa_pb(cmd, src, dst);
+	ft_print_stack_step(*src, *dst); //TODO del
 }
 
-void		ft_push_to_dst_before_pivot(t_order **cmd_stack, t_elem **src, \
-														t_elem **dst, int pivot)
+static int		ft_find_pivot(t_elem *src, int move)
 {
-	int		n;
-	int		iter;
+	int pivot;
+	int counter;
+
+	counter = move;
+	pivot = 0;
+	while (counter)
+	{
+		pivot += src->index;
+		src = src->next;
+		counter--;
+	}
+	pivot = pivot / move;
+	if (move % 2 == 0)
+		pivot++;
+	return (pivot);
+}
+
+void			ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
+														t_elem **dst, int move)
+{
+	int		pivot;
 	t_elem	*tmp;
 
-	n = pivot;
+	pivot = ft_find_pivot(*src, move);
 	tmp = *src;
-	iter = (*src)->iter;
-	while (n)
+	while (move)
 	{
-		if (tmp->index < pivot && tmp->iter == iter)
+		if (tmp->index < pivot)
 		{
-			tmp->iter++;
-			ft_move_src_elem_to_dst(cmd_stack, src, dst, tmp);
+			ft_move_src_elem_to_dst(cmd, src, dst, tmp);
 			tmp = *src;
-			n--;
 		}
 		else
-		{
-			if (ROTATE == ft_nearest_smaller_pivot(*src, pivot))
-				tmp = tmp->next;
-			else
-				tmp = tmp->back;
-		}
+			tmp = tmp->next;
+		move--;
 	}
 }
