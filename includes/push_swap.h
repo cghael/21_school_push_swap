@@ -73,7 +73,7 @@ t_elem					*ft_multi_arg(char **argv, int argc);
 void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 
-void					ft_sort_stack(t_st *stacks);
+void					ft_sort_stacks(t_st *stacks);
 int						ft_check_stack_sorted(t_elem *stack);
 
 void					ft_new_order_add(t_order **cmd_stack, char *str);

@@ -19,23 +19,23 @@ static void		ft_return_from_dst(t_order **cmd_stack, t_elem **src, \
 	}
 }
 
-static void		ft_sort_two_three_elem(t_order **cmd_stack, t_elem **stack, char ch)
+static void		ft_sort_two_three_elem(t_order **cmd, t_elem **stack, char name)
 {
 	if ((*stack)->qnty == 2 && (*stack)->index > (*stack)->next->index)
-		ft_ra_rb(cmd_stack, stack, ch);
+		ft_ra_rb(cmd, stack, name);
 	if (STACK_NOT_SORTED == ft_check_stack_sorted(*stack))
 	{
 		if ((*stack)->index > (*stack)->back->index \
 			&& (*stack)->index < (*stack)->next->index)
-			ft_rra_rrb(cmd_stack, stack, ch);
+			ft_rra_rrb(cmd, stack, name);
 		else if ((*stack)->index > (*stack)->back->index \
 			&& (*stack)->index > (*stack)->next->index)
-			ft_ra_rb(cmd_stack, stack, ch);
+			ft_ra_rb(cmd, stack, name);
 		else
-			ft_sa_sb(cmd_stack, stack, ch);
+			ft_sa_sb(cmd, stack, name);
 	}
 	if (STACK_NOT_SORTED == ft_check_stack_sorted(*stack))
-		ft_sort_two_three_elem(cmd_stack, stack, ch);
+		ft_sort_two_three_elem(cmd, stack, name);
 }
 
 static void		ft_start_sorting(t_order **cmd_stack, t_elem **stack_src, \
@@ -59,21 +59,17 @@ static void		ft_start_sorting(t_order **cmd_stack, t_elem **stack_src, \
 	ft_print_stack_step(*stack_src, *stack_dst); //TODO del
 }
 
-t_order			*ft_sort_stack_a(t_elem *stack_a)
+void			ft_sort_stacks(t_st *stacks)
 {
-	t_order	*cmd_stack;
-	t_elem	*stack_b;
-
-	cmd_stack = NULL;
-	stack_b = NULL;
-	if (STACK_NOT_SORTED == ft_check_stack_sorted(stack_a))
+	ft_print_stack_step(stacks->a, stacks->b); //TODO del
+	if (STACK_NOT_SORTED == ft_check_stack_sorted(stacks->a))
 	{
 		ft_putstr("NOT_SORTED\n\n"); //TODO del
-		if (stack_a->qnty <= 3)
-			ft_sort_two_three_elem(&cmd_stack, &stack_a, stack_a->name);
-		else
-			ft_start_sorting(&cmd_stack, &stack_a, &stack_b);
+		if (stacks->a->qnty <= 3)
+			ft_sort_two_three_elem(&(stacks->cmd), &(stacks->a), stacks->a->name);
+//		else
+//			ft_start_sorting(&cmd_stack, &stack_a, &stack_b);
 	}
+	ft_print_stack_step(stacks->a, stacks->b); //TODO del
 	ft_putstr("SORTED\n\n"); //TODO del
-	return (cmd_stack);
 }

@@ -31,7 +31,7 @@ void		ft_print_stack_step(t_elem *stack_a, t_elem *stack_b)
 	int		counter_b;
 
 	counter_a = (stack_a) ? stack_a->qnty : 0;
-	counter_b = (stack_b) ? stack_b->qnty : 0;
+	counter_b = (stack_b != NULL) ? stack_b->qnty : 0;
 	tmp_a = stack_a;
 	tmp_b = stack_b;
 	ft_printf("STACK A|STACK B\n-------|-------\n");
