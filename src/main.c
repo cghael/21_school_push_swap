@@ -21,10 +21,10 @@ void		ft_count_operations(t_order *cmd_stack)
 
 int			main(int argc, char *argv[])
 {
-	t_elem	*stack_a;
-	t_order	*cmd_stack;
+	t_st	*stacks;
 
-	stack_a = ft_check_n_write_args(argc, argv);
+	stacks = ft_create_t_st_elem();
+	stacks->a = ft_check_n_write_args(argc, argv);
 	cmd_stack = ft_sort_stack_a(stack_a); //if sorted return NULL
 	ft_print_operations(cmd_stack);
 	ft_count_operations(cmd_stack); //TODO del

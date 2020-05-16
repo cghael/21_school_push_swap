@@ -53,12 +53,20 @@ typedef struct		s_order
 	int				step_numb;
 }					t_order;
 
+typedef struct		s_st
+{
+	t_elem			*a;
+	t_elem			*b;
+	t_order			*cmd;
+}					t_st;
+
 /*
 ** -----------------------------------------------------------------------------
 ** -------------------------------- Sources ------------------------------------
 ** -----------------------------------------------------------------------------
 */
 
+t_st					*ft_create_t_st_elem(void);
 t_elem					*ft_check_n_write_args(int argc, char **argv);
 t_elem					*ft_one_agr(char **argv);
 t_elem					*ft_multi_arg(char **argv, int argc);
