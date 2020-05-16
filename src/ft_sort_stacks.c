@@ -60,7 +60,7 @@ static void		ft_start_sorting(t_order **cmd, t_elem **src, t_elem **dst, int mov
 
 	if (STACK_SORTED == ft_check_stack_sorted(*src))
 		return ;
-	if (*src && (*src)->qnty <= 3)
+	if (move <= 3)
 	{
 		ft_sort_last_step(cmd, src, 0);
 		ft_print_stack_step(*src, *dst); //TODO del
