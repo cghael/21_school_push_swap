@@ -19,7 +19,8 @@ int			ft_check_stack_sorted(t_elem *stack)
 		checked = tmp->next;
 		while (checked != stack)
 		{
-			if (checked->value < tmp->value)
+			if ((stack->name == 'a' && checked->value < tmp->value) \
+				|| (stack->name == 'b' && checked->value > tmp->value))
 				return (STACK_NOT_SORTED);
 			checked = checked->next;
 		}

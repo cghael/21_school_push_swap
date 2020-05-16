@@ -38,23 +38,28 @@ static int		ft_find_pivot(t_elem *src, int move)
 	return (pivot);
 }
 
-void			ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
+int			ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
 														t_elem **dst, int move)
 {
 	int		pivot;
 	t_elem	*tmp;
+	int		counter;
 
+	counter = 0;
 	pivot = ft_find_pivot(*src, move);
 	tmp = *src;
 	while (move)
 	{
-		if (tmp->index < pivot)
+		if (((*src)->name == 'a' && tmp->index < pivot) \
+			|| ((*src)->name == 'b' && tmp->index >= pivot))
 		{
 			ft_move_src_elem_to_dst(cmd, src, dst, tmp);
 			tmp = *src;
+			counter++;
 		}
 		else
 			tmp = tmp->next;
 		move--;
 	}
+	return (counter);
 }

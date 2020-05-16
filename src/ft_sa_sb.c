@@ -19,7 +19,7 @@ void		ft_sa_sb(t_order **cmd_stack, t_elem **stack, char ch)
 	(*stack)->back = tmp;
 	*stack = tmp;
 	if (ch == 'a')
-		ft_new_order_add(cmd_stack, "rra");
+		ft_new_order_add(cmd_stack, "_sa");
 	else
-		ft_new_order_add(cmd_stack, "rrb");
+		ft_new_order_add(cmd_stack, "_sb");
 }
