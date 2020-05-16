@@ -14,10 +14,12 @@ void		ft_move_src_elem_to_dst(t_order **cmd_stack, t_elem **src, \
 			ft_ra_rb(cmd_stack, src, (*src)->name);
 		else
 			ft_rra_rrb(cmd_stack, src, (*src)->name);
-		ft_print_stack_step(*src, *dst); //TODO del
+		ft_print_stack_step(
+				*src); //TODO del
 	}
 	ft_pa_pb(cmd_stack, src, dst);
-	ft_print_stack_step(*src, *dst); //TODO del
+	ft_print_stack_step(
+			*src); //TODO del
 }
 
 void		ft_push_to_dst_before_pivot(t_order **cmd_stack, t_elem **src, \

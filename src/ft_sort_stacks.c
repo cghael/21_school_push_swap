@@ -13,7 +13,8 @@ static void		ft_return_from_dst(t_order **cmd_stack, t_elem **src, \
 	while (pivot)
 	{
 		ft_pa_pb(cmd_stack, dst, src);
-		ft_print_stack_step(*src, *dst); //TODO del
+		ft_print_stack_step(
+				*src); //TODO del
 		(*src)->iter = (*src)->next->iter;
 		pivot--;
 	}
@@ -44,7 +45,7 @@ static void		ft_start_sorting(t_order **cmd_stack, t_elem **stack_src, \
 	int	pivot;
 
 	pivot = (*stack_src)->qnty / 2;
-	ft_print_stack_step(*stack_src, *stack_dst); //TODO del
+	ft_print_stack_step(*stacks); //TODO del
 
 //	if ((*stack_src && (*stack_src)->qnty <= 3) \
 //		|| (*stack_dst && (*stack_dst)->qnty <= 3))
@@ -56,12 +57,12 @@ static void		ft_start_sorting(t_order **cmd_stack, t_elem **stack_src, \
 //	ft_start_sorting(cmd_stack, stack_dst, stack_src);
 
 	ft_return_from_dst(cmd_stack, stack_src, stack_dst, pivot);
-	ft_print_stack_step(*stack_src, *stack_dst); //TODO del
+	ft_print_stack_step(*stacks); //TODO del
 }
 
 void			ft_sort_stacks(t_st *stacks)
 {
-	ft_print_stack_step(stacks->a, stacks->b); //TODO del
+	ft_print_stack_step(stacks); //TODO del
 	if (STACK_NOT_SORTED == ft_check_stack_sorted(stacks->a))
 	{
 		ft_putstr("NOT_SORTED\n\n"); //TODO del
@@ -70,6 +71,6 @@ void			ft_sort_stacks(t_st *stacks)
 //		else
 //			ft_start_sorting(&cmd_stack, &stack_a, &stack_b);
 	}
-	ft_print_stack_step(stacks->a, stacks->b); //TODO del
-	ft_putstr("SORTED\n\n"); //TODO del
+	ft_print_stack_step(stacks); //TODO del
+	ft_putstr("SORTED!!!\n\n"); //TODO del
 }

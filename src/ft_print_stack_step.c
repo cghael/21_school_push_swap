@@ -23,17 +23,17 @@ static void	ft_print_line(int counter, t_elem **tmp, char ch)
 	}
 }
 
-void		ft_print_stack_step(t_elem *stack_a, t_elem *stack_b)
+void		ft_print_stack_step(t_st *stacks)
 {
 	t_elem	*tmp_a;
 	t_elem	*tmp_b;
 	int		counter_a;
 	int		counter_b;
 
-	counter_a = (stack_a) ? stack_a->qnty : 0;
-	counter_b = (stack_b != NULL) ? stack_b->qnty : 0;
-	tmp_a = stack_a;
-	tmp_b = stack_b;
+	counter_a = (stacks->a) ? stacks->a->qnty : 0;
+	counter_b = (stacks->b) ? stacks->b->qnty : 0;
+	tmp_a = stacks->a;
+	tmp_b = stacks->b;
 	ft_printf("STACK A|STACK B\n-------|-------\n");
 	while (counter_a > 0 || counter_b > 0)
 	{
