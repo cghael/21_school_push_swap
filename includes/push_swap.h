@@ -73,15 +73,14 @@ t_elem					*ft_multi_arg(char **argv, int argc);
 void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 
-t_order					*ft_sort_stack_a(t_elem *stack_a);
+void					ft_sort_stack(t_st *stacks);
 int						ft_check_stack_sorted(t_elem *stack);
 
 void					ft_new_order_add(t_order **cmd_stack, char *str);
 void					ft_free_cmd_stack(t_order *cmd_stack);
 
 void					ft_print_operations(t_order *cmd_stack);
-void					ft_free_push_swap_mem(t_order *cmd_stack,\
-												t_elem *stack_a);
+void					ft_free_push_swap_mem(t_st *stacks);
 
 void
 ft_pa_pb(

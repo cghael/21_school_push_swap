@@ -4,8 +4,9 @@
 
 #include "push_swap.h"
 
-void		ft_free_push_swap_mem(t_order *cmd_stack, t_elem *stack_a)
+void		ft_free_push_swap_mem(t_st *stacks)
 {
-	ft_free_stack(stack_a);
-	ft_free_cmd_stack(cmd_stack);
+	ft_free_stack(stacks->a);
+	ft_free_cmd_stack(stacks->cmd);
+	free(stacks);
 }
