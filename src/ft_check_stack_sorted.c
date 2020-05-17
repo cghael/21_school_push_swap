@@ -4,28 +4,22 @@
 
 #include "push_swap.h"
 
-int			ft_check_stack_sorted(t_elem *stack)
+int		ft_check_stack_sorted(t_elem *stack, int move)
 {
 	t_elem	*tmp;
 	t_elem	*checked;
-	int		counter;
 
 	tmp = stack;
-	counter = stack->qnty;
 	if (stack->qnty == 1)
 		return (1);
-	while (counter)
+	while (move - 1)
 	{
 		checked = tmp->next;
-		while (checked != stack)
-		{
-			if ((stack->name == 'a' && checked->value < tmp->value) \
+		if ((stack->name == 'a' && checked->value < tmp->value) \
 				|| (stack->name == 'b' && checked->value > tmp->value))
-				return (STACK_NOT_SORTED);
-			checked = checked->next;
-		}
+			return (STACK_NOT_SORTED);
 		tmp = tmp->next;
-		counter--;
+		move--;
 	}
 	return (STACK_SORTED);
 }

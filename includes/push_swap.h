@@ -74,7 +74,10 @@ void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 
 void					ft_sort_stacks(t_st *stacks);
-int						ft_check_stack_sorted(t_elem *stack);
+int
+ft_check_stack_sorted(
+		t_elem *stack,
+		int move);
 
 void					ft_new_order_add(t_order **cmd_stack, char *str);
 void					ft_free_cmd_stack(t_order *cmd_stack);

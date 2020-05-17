@@ -43,10 +43,15 @@ int			ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
 {
 	int		pivot;
 	t_elem	*tmp;
+	t_elem	*last;
 	int		counter;
 
+	last = NULL;
+	if ((*src)->qnty != move)
+		last = (*src)->back;
 	counter = 0;
 	pivot = ft_find_pivot(*src, move);
+	ft_printf("Pivot = %d\n\n", pivot); //todo del
 	tmp = *src;
 	while (move)
 	{
@@ -60,6 +65,11 @@ int			ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
 		else
 			tmp = tmp->next;
 		move--;
+	}
+	if (last) //todo do not like this, but it work
+	{
+		while ((*src)->back != last)
+			ft_rra_rrb(cmd, src, (*src)->name);
 	}
 	return (counter);
 }
