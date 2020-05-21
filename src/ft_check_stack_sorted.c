@@ -11,7 +11,7 @@ int		ft_check_stack_sorted(t_elem *stack, int move)
 
 	tmp = stack;
 	if (stack->qnty == 1)
-		return (1);
+		return (STACK_SORTED);
 	while (move - 1)
 	{
 		checked = tmp->next;

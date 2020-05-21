@@ -4,7 +4,7 @@
 
 #include "push_swap.h"
 
-void		ft_move_src_elem_to_dst(t_order **cmd, t_elem **src, \
+static t_elem	*ft_move_src_elem_to_dst(t_order **cmd, t_elem **src, \
 													t_elem **dst, t_elem *tmp)
 {
 	while(*src != tmp)
@@ -17,28 +17,28 @@ void		ft_move_src_elem_to_dst(t_order **cmd, t_elem **src, \
 	}
 	ft_pa_pb(cmd, src, dst);
 	ft_print_stack_step(*src, *dst); //TODO del
+	return (*src);
 }
 
-static int		ft_find_pivot(t_elem *src, int move)
+static int		ft_find_elem_qnty(int pivot, t_elem **src, int move)
 {
-	int pivot;
-	int counter;
+	t_elem	*tmp;
+	int		counter;
 
-	counter = move;
-	pivot = 0;
-	while (counter)
+	tmp = *src;
+	counter = 0;
+	while (move)
 	{
-		pivot += src->index;
-		src = src->next;
-		counter--;
+		if (((*src)->name == 'a' && tmp->index < pivot) \
+			|| ((*src)->name == 'b' && tmp->index >= pivot))
+			counter++;
+		tmp = tmp->next;
+		move--;
 	}
-	pivot = pivot / move;
-	if (move % 2 == 0)
-		pivot++;
-	return (pivot);
+	return (counter);
 }
 
-int			ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
+int				ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
 														t_elem **dst, int move)
 {
 	int		pivot;
@@ -51,25 +51,32 @@ int			ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
 		last = (*src)->back;
 	counter = 0;
 	pivot = ft_find_pivot(*src, move);
-	ft_printf("Pivot = %d\n\n", pivot); //todo del
+	ft_printf("Pivot = %d\n\n", pivot); //todo del-------------------
 	tmp = *src;
-	while (move)
+	move = ft_find_elem_qnty(pivot, src, move);
+	while (counter != move)
 	{
 		if (((*src)->name == 'a' && tmp->index < pivot) \
 			|| ((*src)->name == 'b' && tmp->index >= pivot))
 		{
-			ft_move_src_elem_to_dst(cmd, src, dst, tmp);
-			tmp = *src;
+			tmp = ft_move_src_elem_to_dst(cmd, src, dst, tmp);
 			counter++;
 		}
 		else
-			tmp = tmp->next;
-		move--;
+		{
+			if (ROTATE == ft_side_to_rotate(pivot, src))
+				tmp = tmp->next;
+			else
+				tmp = tmp->back;
+		}
 	}
+	ft_print_stack_step(*src, *dst); //TODO del-------------------------------
 	if (last) //todo do not like this, but it work
 	{
 		while ((*src)->back != last)
 			ft_rra_rrb(cmd, src, (*src)->name);
 	}
+	ft_print_stack_step(*src, *dst); //TODO del--------------------------------
 	return (counter);
+
 }

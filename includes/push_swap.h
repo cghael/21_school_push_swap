@@ -16,6 +16,7 @@
 # define NOT_A_NUMBER(x)	(x < 48 || x > 57)
 
 # define STACK_SORTED		1
+# define STACKS_SORTED		1
 # define STACK_NOT_SORTED	0
 # define ROTATE				1
 # define REVERSE_ROTATE		0
@@ -74,10 +75,7 @@ void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 
 void					ft_sort_stacks(t_st *stacks);
-int
-ft_check_stack_sorted(
-		t_elem *stack,
-		int move);
+int						ft_check_stack_sorted(t_elem *stack, int move);
 
 void					ft_new_order_add(t_order **cmd_stack, char *str);
 void					ft_free_cmd_stack(t_order *cmd_stack);
@@ -97,5 +95,9 @@ t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
 											t_elem **stack, int index);
 int						ft_find_rotate_side(t_elem *stack, int tmp_index);
 int						ft_nearest_smaller_pivot(t_elem *stack, int pivot);
+void					ft_sort_two_three_elem(t_order **cmd, t_elem **stack, char name);
+void					ft_sort_last_step(t_order **cmd, t_elem **src, int step);
+int						ft_find_pivot(t_elem *src, int move);
+int						ft_side_to_rotate(int pivot, t_elem **src);
 
 #endif //PUSH_SWAP_H

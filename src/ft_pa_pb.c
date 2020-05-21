@@ -4,20 +4,32 @@
 
 #include "push_swap.h"
 
+static void		ft_change_qnty(t_elem **stack, int sign)
+{
+	int		qnty;
+	t_elem	*tmp;
+
+	tmp = *stack;
+	qnty = (*stack)->qnty + sign;
+	while (qnty)
+	{
+		tmp->qnty += sign;
+		tmp = tmp->next;
+		qnty--;
+	}
+}
+
 static void		ft_add_elem_on_top(t_elem *tmp, t_elem **dst_stack)
 {
 	if (*dst_stack)
 	{
-//		tmp->qnty = (*dst_stack)->qnty + 1;
+		tmp->qnty = (*dst_stack)->qnty;
 		tmp->next = *dst_stack;
 		tmp->back = (*dst_stack)->back;
 		tmp->back->next = tmp;
 		(*dst_stack)->back = tmp;
 		if ((*dst_stack)->iter == tmp->iter) //todo wrong when back
-		{
-			tmp->qnty = (*dst_stack)->qnty + 1;
-			(*dst_stack)->qnty = 0;
-		}
+			ft_change_qnty(dst_stack, +1);
 		else
 			tmp->qnty++;
 		*dst_stack = tmp;
@@ -43,27 +55,8 @@ static t_elem	*ft_delete_first_elem(t_elem **src_stack)
 		*src_stack = (*src_stack)->next;
 		(*src_stack)->back = tmp->back;
 		tmp->back->next = *src_stack;
-		if (tmp->qnty > 1)
-			(*src_stack)->qnty = tmp->qnty - 1;
+		ft_change_qnty(src_stack, -1);
 	}
-
-//	if ((*src_stack)->qnty > 1)
-//	{
-//		*src_stack = (*src_stack)->next;
-//		(*src_stack)->back = tmp->back;
-//		tmp->back->next = *src_stack;
-//		(*src_stack)->qnty = tmp->qnty - 1;
-//	}
-//	else if ((*src_stack)->iter != (*src_stack)->next->iter)
-//	{
-//		*src_stack = (*src_stack)->next;
-//		(*src_stack)->back = tmp->back;
-//		tmp->back->next = *src_stack;
-//	}
-//	else
-//		*src_stack = NULL;
-
-
 	tmp->next = NULL;
 	tmp->back = NULL;
 	tmp->qnty = 0;

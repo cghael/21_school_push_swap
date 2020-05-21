@@ -4,29 +4,24 @@
 
 #include "push_swap.h"
 
-static void		ft_sort_two_three_elem(t_order **cmd, t_elem **stack, char name)
+static int		ft_check_all_stacks_sort(t_order **cmd, t_elem **src, t_elem **dst)
 {
-	if ((*stack)->qnty == 2 && (*stack)->index > (*stack)->next->index)
-		ft_ra_rb(cmd, stack, name);
-	if (STACK_NOT_SORTED ==
-			ft_check_stack_sorted(
-					*stack,
-					0))
+	if (STACKS_SORTED == ft_check_stack_sorted(*src, (*src)->qnty) \
+		&& STACK_SORTED == ft_check_stack_sorted(*dst, (*dst)->qnty))
 	{
-		if ((*stack)->index > (*stack)->back->index \
-			&& (*stack)->index < (*stack)->next->index)
-			ft_rra_rrb(cmd, stack, name);
-		else if ((*stack)->index > (*stack)->back->index \
-			&& (*stack)->index > (*stack)->next->index)
-			ft_ra_rb(cmd, stack, name);
+		if ((*src)->name == 'a')
+		{
+			while (*dst)
+				ft_pa_pb(cmd, dst, src);
+		}
 		else
-			ft_sa_sb(cmd, stack, name);
+		{
+			while (*src)
+				ft_pa_pb(cmd, src, dst);
+		}
+		return (STACKS_SORTED);
 	}
-	if (STACK_NOT_SORTED ==
-			ft_check_stack_sorted(
-					*stack,
-					0))
-		ft_sort_two_three_elem(cmd, stack, name);
+	return (STACK_NOT_SORTED);
 }
 
 static void		ft_return_from_dst(t_order **cmd, t_elem **src, \
@@ -40,52 +35,31 @@ static void		ft_return_from_dst(t_order **cmd, t_elem **src, \
 	}
 }
 
-static void		ft_sort_last_step(t_order **cmd, t_elem **src, int step)
-{
-	if (((*src)->name == 'a' && (*src)->index > (*src)->next->index) \
-		|| ((*src)->name == 'b' && (*src)->index < (*src)->next->index))
-		ft_sa_sb(cmd, src, (*src)->name);
-	else if (step == 0 && STACK_NOT_SORTED ==
-								  ft_check_stack_sorted(
-										  *src,
-										  0))
-	{
-		ft_ra_rb(cmd, src, (*src)->name);
-		step++;
-	}
-	else if (step == 1)
-	{
-		ft_rra_rrb(cmd, src, (*src)->name);
-		step++;
-	}
-	else
-		return ;
-	ft_sort_last_step(cmd, src, step);
-}
-
-static void		ft_start_sorting(t_order **cmd, t_elem **src, t_elem **dst, int move)
+static int		ft_start_sorting(t_order **cmd, t_elem **src, t_elem **dst, int move)
 {
 	int	moved_now;
 
+	if (STACKS_SORTED == ft_check_all_stacks_sort(cmd, src, dst))
+		return (STACKS_SORTED);
 	if (STACK_SORTED == ft_check_stack_sorted(*src, move))
-		return ;
+		return (0);
 	if (move <= 3)
 	{
 		ft_sort_last_step(cmd, src, 0);
 		ft_print_stack_step(*src, *dst); //TODO del
+		if (STACKS_SORTED == ft_check_all_stacks_sort(cmd, src, dst))
+			return (STACKS_SORTED);
 	}
 	else
 	{
 		moved_now = ft_push_to_dst_before_pivot(cmd, src, dst, move);
-		ft_start_sorting(cmd, src, dst, move - moved_now);
-		ft_start_sorting(cmd, dst, src, moved_now); //todo can be much faster!!! if stop in time
-//		if ((*src)->name == 'b' \
-//		&& STACK_SORTED == ft_check_stack_sorted(*src, (*src)->qnty) \
-//		&& STACK_SORTED == ft_check_stack_sorted(*dst, (*dst)->qnty))
-//			ft_return_from_dst(cmd, dst, src, moved_now);
-//		else
+		if (STACKS_SORTED == ft_start_sorting(cmd, src, dst, move - moved_now))
+			return (STACKS_SORTED);
+		if (STACKS_SORTED == ft_start_sorting(cmd, dst, src, moved_now))
+			return (STACKS_SORTED);
 		ft_return_from_dst(cmd, src, dst, moved_now);
 	}
+	return (0);
 }
 
 void			ft_sort_stacks(t_st *stacks)
@@ -94,10 +68,7 @@ void			ft_sort_stacks(t_st *stacks)
 
 	move = stacks->a->qnty;
 	ft_print_stack_step(stacks->a, stacks->b); //TODO del
-	if (STACK_NOT_SORTED ==
-			ft_check_stack_sorted(
-					stacks->a,
-					0))
+	if (STACK_NOT_SORTED == ft_check_stack_sorted(stacks->a, move))
 	{
 		ft_putstr("NOT_SORTED\n\n"); //TODO del
 		if (move <= 3)

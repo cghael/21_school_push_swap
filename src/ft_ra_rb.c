@@ -11,9 +11,9 @@ void		ft_ra_rb(t_order **cmd_stack, t_elem **stack, char ch)
 	if (*stack)
 	{
 		tmp = (*stack)->next;
-		tmp->qnty = (*stack)->qnty;
+//		tmp->qnty = (*stack)->qnty;
 
-		(*stack)->qnty = 0;
+//		(*stack)->qnty = 0;
 		*stack = tmp;
 		if (ch == 'a')
 			ft_new_order_add(cmd_stack, "_ra");
