@@ -6,7 +6,7 @@
 /*   By: cghael <cghael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 15:04:30 by cghael            #+#    #+#             */
-/*   Updated: 2020/06/23 13:56:05 by cghael           ###   ########.fr       */
+/*   Updated: 2020/06/23 14:18:20 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void			ft_sort_stacks(t_st **stacks)
 
 	if (STACK_NOT_SORTED == ft_check_stack_sorted((*stacks)->a, (*stacks)->a->qnty))
 	{
+
 		ft_putstr("NOT_SORTED\n\n"); //TODO del
 		if ((*stacks)->a->qnty <= 3)
 			ft_sort_two_three_elem(stacks, (*stacks)->a->name);
