@@ -74,7 +74,7 @@ t_elem					*ft_multi_arg(char **argv, int argc);
 void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 
-void					ft_sort_stacks(t_st *stacks);
+void					ft_sort_stacks(t_st **stacks);
 int						ft_check_stack_sorted(t_elem *stack, int move);
 
 void					ft_new_order_add(t_order **cmd_stack, char *str);
@@ -84,18 +84,17 @@ void					ft_print_operations(t_order *cmd_stack);
 void					ft_free_push_swap_mem(t_st *stacks);
 
 void					ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, t_elem **dst_stack);
-void					ft_ra_rb(t_order **cmd_stack, t_elem **stack, char ch);
-void					ft_rra_rrb(t_order **cmd_stack, t_elem **stack, \
-									char ch);
-void					ft_sa_sb(t_order **cmd_stack, t_elem **stack, char ch);
-void					ft_print_stack_step(t_elem *stack_a, t_elem *stack_b);
+void					ft_ra_rb(t_st **stacks, char stack_name);
+void					ft_rra_rrb(t_st **stacks, char stack_name);
+void					ft_sa_sb(t_st **stacks, char stack_name);
+void					ft_print_stack_step(t_st **stacks);
 int						ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
 														t_elem **dst, int move);
 t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
 											t_elem **stack, int index);
 int						ft_find_rotate_side(t_elem *stack, int tmp_index);
 int						ft_nearest_smaller_pivot(t_elem *stack, int pivot);
-void					ft_sort_two_three_elem(t_order **cmd, t_elem **stack, char name);
+void					ft_sort_two_three_elem(t_st **stacks, char stack_name);
 void					ft_sort_last_step(t_order **cmd, t_elem **src, int step);
 int						ft_find_pivot(t_elem *src, int move);
 int						ft_side_to_rotate(int pivot, t_elem **src);

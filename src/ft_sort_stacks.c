@@ -1,6 +1,14 @@
-//
-// Created by Anton on 18.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_stacks.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <cghael@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/22 15:04:30 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/23 13:56:05 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -35,7 +43,7 @@ static void		ft_return_from_dst(t_order **cmd, t_elem **src, \
 	}
 }
 
-static int		ft_start_sorting(t_order **cmd, t_elem **src, t_elem **dst, int move)
+static int		ft_start_sorting(t_st **stacks, int iter)
 {
 	int	moved_now;
 
@@ -62,20 +70,17 @@ static int		ft_start_sorting(t_order **cmd, t_elem **src, t_elem **dst, int move
 	return (0);
 }
 
-void			ft_sort_stacks(t_st *stacks)
+void			ft_sort_stacks(t_st **stacks)
 {
-	int		move;
+	ft_print_stack_step(stacks); //TODO del
 
-	move = stacks->a->qnty;
-	ft_print_stack_step(stacks->a, stacks->b); //TODO del
-	if (STACK_NOT_SORTED == ft_check_stack_sorted(stacks->a, move))
+	if (STACK_NOT_SORTED == ft_check_stack_sorted((*stacks)->a, (*stacks)->a->qnty))
 	{
 		ft_putstr("NOT_SORTED\n\n"); //TODO del
-		if (move <= 3)
-			ft_sort_two_three_elem(&(stacks->cmd), &(stacks->a), stacks->a->name);
+		if ((*stacks)->a->qnty <= 3)
+			ft_sort_two_three_elem(stacks, (*stacks)->a->name);
 		else
-			ft_start_sorting(&(stacks->cmd), &(stacks->a), &(stacks->b), move);
+			ft_start_sorting(stacks, 0);
 	}
-	ft_print_stack_step(stacks->a, stacks->b); //TODO del
 	ft_putstr("SORTED!!!\n\n"); //TODO del
 }

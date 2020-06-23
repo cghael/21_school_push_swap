@@ -1,16 +1,22 @@
-//
-// Created by Anton on 26.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sa_sb.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/23 13:33:29 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/23 13:33:35 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_sa_sb(t_order **cmd_stack, t_elem **stack, char ch)
+static void	ft_swap_top_two_elem(t_elem **stack)
 {
-	t_elem *tmp;
+	t_elem	*tmp;
 
 	tmp = (*stack)->next;
-//	tmp->qnty = (*stack)->qnty;
-//	(*stack)->qnty = 0;
 	(*stack)->next = tmp->next;
 	tmp->next->back = *stack;
 	tmp->next = *stack;
@@ -18,8 +24,18 @@ void		ft_sa_sb(t_order **cmd_stack, t_elem **stack, char ch)
 	(*stack)->back->next = tmp;
 	(*stack)->back = tmp;
 	*stack = tmp;
-	if (ch == 'a')
-		ft_new_order_add(cmd_stack, "_sa");
+}
+
+void		ft_sa_sb(t_st **stacks, char stack_name)
+{
+	if (stack_name == 'a')
+	{
+		ft_swap_top_two_elem(&(*stacks)->a);
+		ft_new_order_add(&(*stacks)->cmd, "_sa");
+	}
 	else
-		ft_new_order_add(cmd_stack, "_sb");
+	{
+		ft_swap_top_two_elem(&(*stacks)->b);
+		ft_new_order_add(&(*stacks)->cmd, "_sb");
+	}
 }
