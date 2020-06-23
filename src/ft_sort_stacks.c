@@ -6,12 +6,13 @@
 /*   By: cghael <cghael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 15:04:30 by cghael            #+#    #+#             */
-/*   Updated: 2020/06/23 14:18:20 by cghael           ###   ########.fr       */
+/*   Updated: 2020/06/23 15:31:21 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
 static int		ft_check_all_stacks_sort(t_order **cmd, t_elem **src, t_elem **dst)
 {
 	if (STACKS_SORTED == ft_check_stack_sorted(*src, (*src)->qnty) \
@@ -31,6 +32,7 @@ static int		ft_check_all_stacks_sort(t_order **cmd, t_elem **src, t_elem **dst)
 	}
 	return (STACK_NOT_SORTED);
 }
+ */
 
 static void		ft_return_from_dst(t_order **cmd, t_elem **src, \
 													t_elem **dst, int moved_now)
@@ -43,8 +45,22 @@ static void		ft_return_from_dst(t_order **cmd, t_elem **src, \
 	}
 }
 
-static int		ft_start_sorting(t_st **stacks, int iter)
+static void		ft_start_sorting(t_st **stacks, int iter, char src_name)
 {
+	if (/* src_stack sorted */)
+		return ;
+	if (/* src_stack->quantity < 3 */)
+	{
+		ft_sa_sb(/* src_stack */);
+		return ;
+	}
+	ft_move_half_from_src_to_dst();
+	ft_start_sorting(/* src_stack */);
+	ft_start_sorting(/* dst_stack */);
+	ft_return_half_from_dst_to_src();
+
+
+	/*
 	int	moved_now;
 
 	if (STACKS_SORTED == ft_check_all_stacks_sort(cmd, src, dst))
@@ -68,11 +84,12 @@ static int		ft_start_sorting(t_st **stacks, int iter)
 		ft_return_from_dst(cmd, src, dst, moved_now);
 	}
 	return (0);
+	 */
 }
 
 void			ft_sort_stacks(t_st **stacks)
 {
-	ft_print_stack_step(stacks); //TODO del
+	ft_print_stack_step(*stacks); //TODO del
 
 	if (STACK_NOT_SORTED == ft_check_stack_sorted((*stacks)->a, (*stacks)->a->qnty))
 	{
@@ -81,7 +98,7 @@ void			ft_sort_stacks(t_st **stacks)
 		if ((*stacks)->a->qnty <= 3)
 			ft_sort_two_three_elem(stacks, (*stacks)->a->name);
 		else
-			ft_start_sorting(stacks, 0);
+			ft_start_sorting(stacks, 0, 'a');
 	}
 	ft_putstr("SORTED!!!\n\n"); //TODO del
 }

@@ -87,7 +87,7 @@ void					ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, t_elem **dst_stack);
 void					ft_ra_rb(t_st **stacks, char stack_name);
 void					ft_rra_rrb(t_st **stacks, char stack_name);
 void					ft_sa_sb(t_st **stacks, char stack_name);
-void					ft_print_stack_step(t_st **stacks);
+void					ft_print_stack_step(t_st *stacks);
 int						ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
 														t_elem **dst, int move);
 t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
