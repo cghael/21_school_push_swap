@@ -3,7 +3,7 @@
 //
 
 #include "push_swap.h"
-
+/*
 t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
 										t_elem **stack, int index)
 {
@@ -28,3 +28,4 @@ t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
 		return (tmp);
 	return (NULL);
 }
+ */

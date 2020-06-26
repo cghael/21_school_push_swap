@@ -3,7 +3,7 @@
 //
 
 #include "push_swap.h"
-
+/*
 void		ft_sort_last_step(t_order **cmd, t_elem **src, int step)
 {
 	if (((*src)->name == 'a' && (*src)->index > (*src)->next->index) \
@@ -23,3 +23,4 @@ void		ft_sort_last_step(t_order **cmd, t_elem **src, int step)
 		return ;
 	ft_sort_last_step(cmd, src, step);
 }
+ */

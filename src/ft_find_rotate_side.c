@@ -1,34 +1,38 @@
-//
-// Created by Anton on 25.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_find_rotate_side.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/26 13:04:03 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/26 13:04:12 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			ft_find_rotate_side(t_elem *stack, int tmp_index)
+int			ft_find_rotate_side(t_elem *stack, int piece)
 {
-	int		rotate_steps;
-	int		reverse_steps;
-	t_elem	*step_elem;
+	int		rr_counter;
+	int		r_counter;
+	t_elem	*tmp;
 
-	rotate_steps = 0;
-	reverse_steps = 0;
-	step_elem = stack;
-	while (step_elem->index != tmp_index)
+	tmp = stack;
+	r_counter = 0;
+	rr_counter = 0;
+	while (tmp->index >= piece)
 	{
-		step_elem = step_elem->next;
-		rotate_steps++;
+		r_counter++;
+		tmp = tmp->next;
 	}
-	step_elem = stack;
-	while (step_elem->index != tmp_index)
+	tmp = stack;
+	while (tmp->index >= piece)
 	{
-		step_elem = step_elem->back;
-		reverse_steps++;
+		rr_counter++;
+		tmp = tmp->back;
 	}
-	if (rotate_steps < reverse_steps)
-	{
-		ft_putstr("Choose rotate\n"); //TODO del
+	if (r_counter >= rr_counter)
 		return (ROTATE);
-	}
-	ft_putstr("Choose reverse\n");//TODO del
-	return(REVERSE_ROTATE);
+	return (REVERSE);
 }

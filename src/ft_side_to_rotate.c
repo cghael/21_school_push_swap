@@ -28,5 +28,5 @@ int			ft_side_to_rotate(int pivot, t_elem **src)
 	}
 	if (rotate <= reverse)
 		return (ROTATE);
-	return (REVERSE_ROTATE);
+	return (REVERSE);
 }

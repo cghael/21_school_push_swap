@@ -3,7 +3,7 @@
 //
 
 #include "push_swap.h"
-
+/*
 static t_elem	*ft_move_src_elem_to_dst(t_order **cmd, t_elem **src, \
 													t_elem **dst, t_elem *tmp)
 {
@@ -80,3 +80,4 @@ int				ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
 	return (counter);
 
 }
+ */

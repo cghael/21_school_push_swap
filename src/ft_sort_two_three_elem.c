@@ -6,30 +6,30 @@
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 12:26:12 by cghael            #+#    #+#             */
-/*   Updated: 2020/06/23 13:22:01 by cghael           ###   ########.fr       */
+/*   Updated: 2020/06/26 11:39:32 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_sort_two_three_elem(t_st **stacks, char stack_name)
+void		ft_sort_two_three_elem(t_st **stacks)
 {
 	t_elem *stack;
 
-	stack = (stack_name == 'a') ? (*stacks)->a : (*stacks)->b;
-	if (stack->qnty == 2 && stack->index > stack->next->index)
-		ft_ra_rb(stacks, stack_name);
-	if (STACK_NOT_SORTED == ft_check_stack_sorted(stack, stack->qnty))
+	stack = (*stacks)->a;
+	if ((*stacks)->qnty_a == 2 && stack->index > stack->next->index)
+		ft_ra_rb(stacks, stack->name);
+	if (NOT_SORTED == ft_check_stack_sorted((*stacks)->a, (*stacks)->qnty_a))
 	{
 		if (stack->index > stack->back->index && \
 			stack->index < stack->next->index)
-			ft_rra_rrb(stacks, stack_name);
+			ft_rra_rrb(stacks, stack->name);
 		else if (stack->index > stack->back->index &&\
 					stack->index > stack->next->index)
-			ft_ra_rb(stacks, stack_name);
+			ft_ra_rb(stacks, stack->name);
 		else
-			ft_sa_sb(stacks, stack_name);
+			ft_sa_sb(stacks, stack->name);
 	}
-	if (STACK_NOT_SORTED == ft_check_stack_sorted(stack, stack->qnty))
-		ft_sort_two_three_elem(stacks, stack_name);
+	if (NOT_SORTED == ft_check_stack_sorted((*stacks)->a, (*stacks)->qnty_a))
+		ft_sort_two_three_elem(stacks);
 }

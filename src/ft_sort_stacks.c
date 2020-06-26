@@ -6,99 +6,63 @@
 /*   By: cghael <cghael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 15:04:30 by cghael            #+#    #+#             */
-/*   Updated: 2020/06/23 15:31:21 by cghael           ###   ########.fr       */
+/*   Updated: 2020/06/26 13:54:02 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-static int		ft_check_all_stacks_sort(t_order **cmd, t_elem **src, t_elem **dst)
+static void		ft_move_elem_to_b(t_st **stacks, int piece)
 {
-	if (STACKS_SORTED == ft_check_stack_sorted(*src, (*src)->qnty) \
-		&& STACK_SORTED == ft_check_stack_sorted(*dst, (*dst)->qnty))
+	if (ROTATE == ft_find_rotate_side((*stacks)->a, piece))
 	{
-		if ((*src)->name == 'a')
-		{
-			while (*dst)
-				ft_pa_pb(cmd, dst, src);
-		}
-		else
-		{
-			while (*src)
-				ft_pa_pb(cmd, src, dst);
-		}
-		return (STACKS_SORTED);
-	}
-	return (STACK_NOT_SORTED);
-}
- */
-
-static void		ft_return_from_dst(t_order **cmd, t_elem **src, \
-													t_elem **dst, int moved_now)
-{
-	while (moved_now)
-	{
-		ft_pa_pb(cmd, dst, src);
-		ft_print_stack_step(*src, *dst); //TODO del
-		moved_now--;
-	}
-}
-
-static void		ft_start_sorting(t_st **stacks, int iter, char src_name)
-{
-	if (/* src_stack sorted */)
-		return ;
-	if (/* src_stack->quantity < 3 */)
-	{
-		ft_sa_sb(/* src_stack */);
-		return ;
-	}
-	ft_move_half_from_src_to_dst();
-	ft_start_sorting(/* src_stack */);
-	ft_start_sorting(/* dst_stack */);
-	ft_return_half_from_dst_to_src();
-
-
-	/*
-	int	moved_now;
-
-	if (STACKS_SORTED == ft_check_all_stacks_sort(cmd, src, dst))
-		return (STACKS_SORTED);
-	if (STACK_SORTED == ft_check_stack_sorted(*src, move))
-		return (0);
-	if (move <= 3)
-	{
-		ft_sort_last_step(cmd, src, 0);
-		ft_print_stack_step(*src, *dst); //TODO del
-		if (STACKS_SORTED == ft_check_all_stacks_sort(cmd, src, dst))
-			return (STACKS_SORTED);
+		while ((*stacks)->a->index >= piece)
+			ft_ra_rb(stacks, (*stacks)->a->name);
 	}
 	else
 	{
-		moved_now = ft_push_to_dst_before_pivot(cmd, src, dst, move);
-		if (STACKS_SORTED == ft_start_sorting(cmd, src, dst, move - moved_now))
-			return (STACKS_SORTED);
-		if (STACKS_SORTED == ft_start_sorting(cmd, dst, src, moved_now))
-			return (STACKS_SORTED);
-		ft_return_from_dst(cmd, src, dst, moved_now);
+		while ((*stacks)->a->index >= piece)
+			ft_rra_rrb(stacks, (*stacks)->a->name);
 	}
-	return (0);
-	 */
+	ft_pa_pb(stacks, (*stacks)->a->name);
+}
+
+static void		ft_start_sorting(t_st **stacks)
+{
+	int	piece;
+	int	qnty;
+	int	i;
+
+	i = 0;
+	qnty = (*stacks)->qnty_a;
+//	piece = ft_find_piece((*stacks)->qnty_a); //todo
+	piece = 5;
+	while (piece <= qnty && (*stacks)->a != NULL)
+	{
+		while (i < piece)
+		{
+			ft_move_elem_to_b(stacks, piece);
+			ft_print_stack_step(*stacks); //todo del
+			i++;
+		}
+		piece += piece;
+	}
 }
 
 void			ft_sort_stacks(t_st **stacks)
 {
 	ft_print_stack_step(*stacks); //TODO del
 
-	if (STACK_NOT_SORTED == ft_check_stack_sorted((*stacks)->a, (*stacks)->a->qnty))
+	if (NOT_SORTED == ft_check_stack_sorted((*stacks)->a, (*stacks)->qnty_a))
 	{
 
 		ft_putstr("NOT_SORTED\n\n"); //TODO del
-		if ((*stacks)->a->qnty <= 3)
-			ft_sort_two_three_elem(stacks, (*stacks)->a->name);
+		if ((*stacks)->qnty_a <= 3)
+			ft_sort_two_three_elem(stacks);
 		else
-			ft_start_sorting(stacks, 0, 'a');
+			ft_start_sorting(stacks);
 	}
-	ft_putstr("SORTED!!!\n\n"); //TODO del
+	else
+		ft_putstr("SORTED!!!\n\n"); //TODO del
+	ft_print_stack_step(*stacks); //TODO del
 }

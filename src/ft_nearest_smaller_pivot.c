@@ -3,7 +3,7 @@
 //
 
 #include "push_swap.h"
-
+/*
 static int	ft_check_for_elem_exist(t_elem *stack, int pivot)
 {
 	t_elem	*tmp;
@@ -49,3 +49,4 @@ int			ft_nearest_smaller_pivot(t_elem *stack, int pivot)
 	ft_putstr("Choose reverse\n");//TODO del
 	return(REVERSE_ROTATE);
 }
+ */

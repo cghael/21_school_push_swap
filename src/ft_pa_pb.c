@@ -1,65 +1,54 @@
-//
-// Created by Anton on 23.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_pa_pb.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/26 13:44:31 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/26 13:44:36 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		ft_change_qnty(t_elem **stack, int sign)
-{
-	int		qnty;
-	t_elem	*tmp;
 
-	tmp = *stack;
-	qnty = (*stack)->qnty + sign;
-	while (qnty)
-	{
-		tmp->qnty += sign;
-		tmp = tmp->next;
-		qnty--;
-	}
-}
-
-static void		ft_add_elem_on_top(t_elem *tmp, t_elem **dst_stack)
+static void		ft_add_elem_on_top(t_elem *tmp, t_elem **dst_stack, \
+																t_st **stacks)
 {
 	if (*dst_stack)
 	{
-		tmp->qnty = (*dst_stack)->qnty;
 		tmp->next = *dst_stack;
 		tmp->back = (*dst_stack)->back;
 		tmp->back->next = tmp;
 		(*dst_stack)->back = tmp;
-		if ((*dst_stack)->iter == tmp->iter) //todo wrong when back
-			ft_change_qnty(dst_stack, +1);
-		else
-			tmp->qnty++;
 		*dst_stack = tmp;
 	}
 	else
 	{
-		tmp->qnty++;
 		*dst_stack = tmp;
 		tmp->next = tmp;
 		tmp->back = tmp;
 	}
+	(*stacks)->qnty_b++;
 }
 
-static t_elem	*ft_delete_first_elem(t_elem **src_stack)
+static t_elem	*ft_delete_first_elem(t_elem **src_stack, t_st **stacks)
 {
 	t_elem *tmp;
 
 	tmp = *src_stack;
-	if ((*src_stack)->qnty == 1 && (*src_stack)->iter == (*src_stack)->next->iter)
+	if ((*stacks)->qnty_a == 1)
 		*src_stack = NULL;
 	else
 	{
 		*src_stack = (*src_stack)->next;
 		(*src_stack)->back = tmp->back;
 		tmp->back->next = *src_stack;
-		ft_change_qnty(src_stack, -1);
 	}
 	tmp->next = NULL;
 	tmp->back = NULL;
-	tmp->qnty = 0;
+	(*stacks)->qnty_a--;
 	return (tmp);
 }
 
@@ -71,29 +60,28 @@ static void		ft_change_tmp_name(t_elem **tmp)
 		(*tmp)->name = 'a';
 }
 
-void			ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, \
-															t_elem **dst_stack)
+void			ft_pa_pb(t_st **stacks, char stack_name)
 {
-	t_elem *tmp; //todo must know, is it get back or push forward recursion
+	t_elem	*tmp;
 
-	if (*src_stack)
+	if (stack_name == 'a')
 	{
-		tmp = ft_delete_first_elem(src_stack);
-		ft_change_tmp_name(&tmp);
-		ft_add_elem_on_top(tmp, dst_stack);
-	}
-	if (*src_stack)
-	{
-		if ((*src_stack)->name == 'b')
-			ft_new_order_add(cmd_stack, "_pa");
-		else
-			ft_new_order_add(cmd_stack, "_pb");
+		if ((*stacks)->a)
+		{
+			tmp = ft_delete_first_elem(&(*stacks)->a, stacks);
+			ft_change_tmp_name(&tmp);
+			ft_add_elem_on_top(tmp, &(*stacks)->b, stacks);
+		}
+		ft_new_order_add(&(*stacks)->cmd, "_pb");
 	}
 	else
 	{
-		if ((*dst_stack)->name == 'b')
-			ft_new_order_add(cmd_stack, "_pb");
-		else
-			ft_new_order_add(cmd_stack, "_pa");
+		if ((*stacks)->b)
+		{
+			tmp = ft_delete_first_elem(&(*stacks)->b, stacks);
+			ft_change_tmp_name(&tmp);
+			ft_add_elem_on_top(tmp, &(*stacks)->a, stacks);
+		}
+		ft_new_order_add(&(*stacks)->cmd, "_pa");
 	}
 }
