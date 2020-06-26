@@ -22,5 +22,7 @@ t_st	*ft_create_t_st_elem(void)
 	new->a = NULL;
 	new->b = NULL;
 	new->cmd = NULL;
+	new->qnty_a = 0;
+	new->qnty_b = 0;
 	return (new);
 }

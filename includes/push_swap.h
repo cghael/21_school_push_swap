@@ -39,6 +39,7 @@ typedef struct			s_elem
 {
 	int 				value;
 	int					index;
+	int					stay;
 //	int					qnty;
 //	int					iter;
 	char				name;
@@ -75,6 +76,9 @@ t_elem					*ft_multi_arg(char **argv, int argc);
 void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 
+void					ft_start_sorting(t_st **stacks);
+void					ft_get_stack_back(t_st **stacks);
+int						ft_need_steps_to_push(t_elem *current, t_st *stacks);
 void					ft_sort_stacks(t_st **stacks);
 int						ft_check_stack_sorted(t_elem *stack, int qnty);
 

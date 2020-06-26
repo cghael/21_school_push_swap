@@ -21,13 +21,13 @@ int			ft_find_rotate_side(t_elem *stack, int piece)
 	tmp = stack;
 	r_counter = 0;
 	rr_counter = 0;
-	while (tmp->index >= piece)
+	while (tmp->index >= piece || tmp->stay == 1)
 	{
 		r_counter++;
 		tmp = tmp->next;
 	}
 	tmp = stack;
-	while (tmp->index >= piece)
+	while (tmp->index >= piece || tmp->stay == 1)
 	{
 		rr_counter++;
 		tmp = tmp->back;

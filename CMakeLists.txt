@@ -24,7 +24,7 @@ set(SOURCES src/main.c
         src/ft_find_rotate_side.c
         src/ft_nearest_smaller_pivot.c
         src/ft_sa_sb.c
-        src/ft_create_t_st_elem.c src/ft_sort_two_three_elem.c src/ft_sort_last_step.c src/ft_find_pivot.c src/ft_side_to_rotate.c)
+        src/ft_create_t_st_elem.c src/ft_sort_two_three_elem.c src/ft_sort_last_step.c src/ft_find_pivot.c src/ft_side_to_rotate.c src/ft_start_sorting.c src/ft_get_stack_back.c src/ft_need_steps_to_push.c)
 
 include_directories(includes)
 include_directories(ft_printf/includes)
