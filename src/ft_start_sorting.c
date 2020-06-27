@@ -76,7 +76,7 @@ void			ft_start_sorting(t_st **stacks)
 	qnty = (*stacks)->qnty_a; //because qnty_a is changed
 	ft_find_presort_pieces(stacks); //todo stack->stay = 1
 //	piece_step = ft_find_piece((*stacks)->qnty_a); //todo
-	piece_step = 5;
+	piece_step = 100;
 	piece = piece_step;
 	while (piece <= qnty)
 	{

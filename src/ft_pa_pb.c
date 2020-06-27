@@ -30,15 +30,22 @@ static void		ft_add_elem_on_top(t_elem *tmp, t_elem **dst_stack, \
 		tmp->next = tmp;
 		tmp->back = tmp;
 	}
-	(*stacks)->qnty_b++;
+	if (tmp->name == 'a')
+		(*stacks)->qnty_a++;
+	else
+		(*stacks)->qnty_b++;
 }
 
 static t_elem	*ft_delete_first_elem(t_elem **src_stack, t_st **stacks)
 {
-	t_elem *tmp;
+	t_elem	*tmp;
+	int		qnty;
 
 	tmp = *src_stack;
-	if ((*stacks)->qnty_a == 1)
+	qnty = (*stacks)->qnty_b;
+	if (tmp->name == 'a')
+		qnty = (*stacks)->qnty_a;
+	if (qnty == 1)
 		*src_stack = NULL;
 	else
 	{
@@ -48,7 +55,10 @@ static t_elem	*ft_delete_first_elem(t_elem **src_stack, t_st **stacks)
 	}
 	tmp->next = NULL;
 	tmp->back = NULL;
-	(*stacks)->qnty_a--;
+	if (tmp->name == 'a')
+		(*stacks)->qnty_a--;
+	else
+		(*stacks)->qnty_b--;
 	return (tmp);
 }
 
@@ -60,11 +70,11 @@ static void		ft_change_tmp_name(t_elem **tmp)
 		(*tmp)->name = 'a';
 }
 
-void			ft_pa_pb(t_st **stacks, char stack_name)
+void			ft_pa_pb(t_st **stacks, char src_name)
 {
 	t_elem	*tmp;
 
-	if (stack_name == 'a')
+	if (src_name == 'a')
 	{
 		if ((*stacks)->a)
 		{
@@ -79,6 +89,7 @@ void			ft_pa_pb(t_st **stacks, char stack_name)
 		if ((*stacks)->b)
 		{
 			tmp = ft_delete_first_elem(&(*stacks)->b, stacks);
+			ft_print_stack_step(*stacks);//todo del
 			ft_change_tmp_name(&tmp);
 			ft_add_elem_on_top(tmp, &(*stacks)->a, stacks);
 		}

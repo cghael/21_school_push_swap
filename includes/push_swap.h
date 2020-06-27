@@ -78,7 +78,10 @@ void					ft_free_stack(t_elem *stack);
 
 void					ft_start_sorting(t_st **stacks);
 void					ft_get_stack_back(t_st **stacks);
-int						ft_need_steps_to_push(t_elem *current, t_st *stacks);
+int						ft_steps_to_move_current_on_top_b(t_elem *current, t_st *stacks);
+int						ft_steps_ready_stack_a_to_push_current(t_elem *cur, t_st *stacks);
+void					ft_push_tmp_to_a(t_st **stacks, t_elem *tmp);
+//int						ft_need_steps_to_push(t_elem *current, t_st *stacks);
 void					ft_sort_stacks(t_st **stacks);
 int						ft_check_stack_sorted(t_elem *stack, int qnty);
 
@@ -88,7 +91,7 @@ void					ft_free_cmd_stack(t_order *cmd_stack);
 void					ft_print_operations(t_order *cmd_stack);
 void					ft_free_push_swap_mem(t_st *stacks);
 
-void					ft_pa_pb(t_st **stacks, char stack_name);
+void					ft_pa_pb(t_st **stacks, char src_name);
 void					ft_ra_rb(t_st **stacks, char stack_name);
 void					ft_rra_rrb(t_st **stacks, char stack_name);
 void					ft_sa_sb(t_st **stacks, char stack_name);
