@@ -6,7 +6,7 @@
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 13:23:29 by cghael            #+#    #+#             */
-/*   Updated: 2020/06/25 13:23:35 by cghael           ###   ########.fr       */
+/*   Updated: 2020/06/30 10:43:41 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,5 @@ void		ft_new_elem_add(t_elem **stack, int numb)
 	new->back = NULL;
 	new->index = 0;
 	new->name = 'a';
-	new->stay = 0;
 	ft_add_new_to_stack(stack, new);
 }

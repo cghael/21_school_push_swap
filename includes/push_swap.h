@@ -47,21 +47,31 @@ typedef struct			s_elem
 	struct s_elem		*back;
 }						t_elem;
 
-typedef struct		s_order
+typedef struct			s_order
 {
-	char			command[4];
-	struct s_order	*next;
-	int				step_numb;
-}					t_order;
+	char				command[4];
+	struct s_order		*next;
+	int					step_numb;
+}						t_order;
 
-typedef struct		s_st
+typedef struct			s_steps
 {
-	t_elem			*a;
-	int				qnty_a;
-	t_elem			*b;
-	int				qnty_b;
-	t_order			*cmd;
-}					t_st;
+	int					ra;
+	int					ra_rb;
+	int					ra_rrb;
+	int					rra;
+	int					rra_rb;
+	int					rra_rrb;
+}						t_steps;
+
+typedef struct			s_st
+{
+	t_elem				*a;
+	int					qnty_a;
+	t_elem				*b;
+	int					qnty_b;
+	t_order				*cmd;
+}						t_st;
 
 /*
 ** -----------------------------------------------------------------------------
@@ -77,6 +87,7 @@ void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 
 void					ft_start_sorting(t_st **stacks);
+void					ft_move_elem_to_b(t_st **stacks, int piece);
 void					ft_get_stack_back(t_st **stacks);
 int						ft_steps_to_move_current_on_top_b(t_elem *current, t_st *stacks);
 int						ft_steps_ready_stack_a_to_push_current(t_elem *cur, t_st *stacks);

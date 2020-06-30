@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_rotate_side.c                              :+:      :+:    :+:   */
+/*   ft_move_elem_to_b.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 13:04:03 by cghael            #+#    #+#             */
-/*   Updated: 2020/06/30 10:43:41 by cghael           ###   ########.fr       */
+/*   Created: 2020/06/30 11:18:54 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/30 15:39:30 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			ft_find_rotate_side(t_elem *stack, int piece)
+void		ft_move_elem_to_b(t_st **stacks, int piece)
 {
-	int		rr_counter;
-	int		r_counter;
-	t_elem	*tmp;
 
-	tmp = stack;
-	r_counter = 0;
-	rr_counter = 0;
-	while (tmp->index >= piece)
-	{
-		r_counter++;
-		tmp = tmp->next;
-	}
-	tmp = stack;
-	while (tmp->index >= piece)
-	{
-		rr_counter++;
-		tmp = tmp->back;
-	}
-	if (r_counter >= rr_counter)
-		return (ROTATE);
-	return (REVERSE);
+	ft_move_elem_on_top_a();
+	ft_ready_b_to_push_from_a();
+//	t_elem	*tmp;
+//
+//	while ((*stacks)->a != NULL)
+//	{
+//		tmp = ft_find_best_next_push(*stacks);
+//		ft_push_tmp_to_a(stacks, tmp);
+//		ft_print_stack_step(*stacks); //todo del
+//	}
+//	ft_move_first_elem_on_top_a(stacks);
 }

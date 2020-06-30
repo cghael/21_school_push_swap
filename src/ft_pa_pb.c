@@ -6,12 +6,11 @@
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 13:44:31 by cghael            #+#    #+#             */
-/*   Updated: 2020/06/26 13:44:36 by cghael           ###   ########.fr       */
+/*   Updated: 2020/06/30 10:57:45 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static void		ft_add_elem_on_top(t_elem *tmp, t_elem **dst_stack, \
 																t_st **stacks)
@@ -62,12 +61,12 @@ static t_elem	*ft_delete_first_elem(t_elem **src_stack, t_st **stacks)
 	return (tmp);
 }
 
-static void		ft_change_tmp_name(t_elem *tmp)
+static void		ft_change_tmp_name(t_elem **tmp)
 {
-	if (tmp->name == 'a')
-		tmp->name = 'b';
+	if ((*tmp)->name == 'a')
+		(*tmp)->name = 'b';
 	else
-		tmp->name = 'a';
+		(*tmp)->name = 'a';
 }
 
 void			ft_pa_pb(t_st **stacks, char src_name)
@@ -79,7 +78,7 @@ void			ft_pa_pb(t_st **stacks, char src_name)
 		if ((*stacks)->a)
 		{
 			tmp = ft_delete_first_elem(&(*stacks)->a, stacks);
-			ft_change_tmp_name(tmp);
+			ft_change_tmp_name(&tmp);
 			ft_add_elem_on_top(tmp, &(*stacks)->b, stacks);
 		}
 		ft_new_order_add(&(*stacks)->cmd, "_pb");
@@ -89,8 +88,7 @@ void			ft_pa_pb(t_st **stacks, char src_name)
 		if ((*stacks)->b)
 		{
 			tmp = ft_delete_first_elem(&(*stacks)->b, stacks);
-			ft_print_stack_step(*stacks);//todo del
-			ft_change_tmp_name(tmp);
+			ft_change_tmp_name(&tmp);
 			ft_add_elem_on_top(tmp, &(*stacks)->a, stacks);
 		}
 		ft_new_order_add(&(*stacks)->cmd, "_pa");
