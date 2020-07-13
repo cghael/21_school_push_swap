@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_push_swap_mem.c                            :+:      :+:    :+:   */
+/*   ft_run_min_steps.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/13 12:27:02 by cghael            #+#    #+#             */
-/*   Updated: 2020/07/13 12:27:06 by cghael           ###   ########.fr       */
+/*   Created: 2020/07/13 14:10:41 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/13 14:43:28 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_free_push_swap_mem(t_st *stacks)
+static char		*ft_choose_min_steps(t_steps *tmp)
 {
-	if (stacks)
-	{
-		if (stacks->a)
-			ft_free_stack(stacks->a);
-		if (stacks->b)
-			ft_free_stack(stacks->b);
-		if (stacks->cmd)
-			ft_free_cmd_stack(stacks->cmd);
-	}
-	free(stacks);
+	t_arr_elem	*min;
+
+	min = ft_arr_min(tmp->var, 8);
+}
+
+void			ft_run_min_steps(t_steps *tmp, t_st **stacks)
+{
+	char *cmd_str;
+
+	cmd_str = ft_choose_min_steps(tmp);
 }

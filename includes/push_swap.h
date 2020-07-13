@@ -54,14 +54,27 @@ typedef struct			s_order
 	int					step_numb;
 }						t_order;
 
+typedef struct			s_variant
+{
+	t_order				*cm_line;
+	int					size;
+}						t_variant;
+
 typedef struct			s_steps
 {
-	int					ra;
-	int					ra_rb;
-	int					ra_rrb;
-	int					rra;
-	int					rra_rb;
-	int					rra_rrb;
+	t_elem				*x1;
+	t_elem				*y1;
+	t_elem				*x2;
+	t_elem				*y2;
+	t_variant			var[8];
+//	int					x1_ra_rb;
+//	int					x1_ra_rrb;
+//	int					x1_rra_rrb;
+//	int					x1_rra_rb;
+//	int					x2_ra_rb;
+//	int					x2_ra_rrb;
+//	int					x2_rra_rrb;
+//	int					x2_rra_rb;
 }						t_steps;
 
 typedef struct			s_st
@@ -88,6 +101,9 @@ void					ft_free_stack(t_elem *stack);
 
 void					ft_start_sorting(t_st **stacks);
 void					ft_move_elem_to_b(t_st **stacks, int piece);
+t_steps*				ft_choose_optimal_step(t_st **stacks, int piece);
+void					ft_count_steps(t_steps **stp, t_st **stacks);
+void					ft_run_min_steps(t_steps *tmp, t_st **stacks);
 void					ft_get_stack_back(t_st **stacks);
 int						ft_steps_to_move_current_on_top_b(t_elem *current, t_st *stacks);
 int						ft_steps_ready_stack_a_to_push_current(t_elem *cur, t_st *stacks);
@@ -105,6 +121,7 @@ void					ft_free_push_swap_mem(t_st *stacks);
 void					ft_pa_pb(t_st **stacks, char src_name);
 void					ft_ra_rb(t_st **stacks, char stack_name);
 void					ft_rra_rrb(t_st **stacks, char stack_name);
+void					ft_rr_rrr(t_st **stacks, int side);
 void					ft_sa_sb(t_st **stacks, char stack_name);
 void					ft_print_stack_step(t_st *stacks);
 int						ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_push_swap_mem.c                            :+:      :+:    :+:   */
+/*   ft_rr_rrr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/13 12:27:02 by cghael            #+#    #+#             */
-/*   Updated: 2020/07/13 12:27:06 by cghael           ###   ########.fr       */
+/*   Created: 2020/07/13 14:30:08 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/13 14:30:11 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_free_push_swap_mem(t_st *stacks)
+void		ft_rr_rrr(t_st **stacks, int side)
 {
-	if (stacks)
+	if (ROTATE == side)
 	{
-		if (stacks->a)
-			ft_free_stack(stacks->a);
-		if (stacks->b)
-			ft_free_stack(stacks->b);
-		if (stacks->cmd)
-			ft_free_cmd_stack(stacks->cmd);
+		(*stacks)->a = (*stacks)->a->next;
+		(*stacks)->b = (*stacks)->b->next;
+		ft_new_order_add(&(*stacks)->cmd, "rr");
 	}
-	free(stacks);
+	else
+	{
+		(*stacks)->a = (*stacks)->a->back;
+		(*stacks)->b = (*stacks)->b->back;
+		ft_new_order_add(&(*stacks)->cmd, "rrr");
+	}
 }

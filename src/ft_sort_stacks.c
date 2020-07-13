@@ -31,7 +31,7 @@ void			ft_sort_stacks(t_st **stacks)
 		else
 		{
 			ft_start_sorting(stacks);
-			ft_presort_stayed_elem(stacks);
+//			ft_presort_stayed_elem(stacks);
 			ft_get_stack_back(stacks);
 		}
 	}
