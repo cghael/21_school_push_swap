@@ -12,6 +12,22 @@
 
 #include "push_swap.h"
 
+static void		ft_presort_stack(t_st **stacks)
+{
+	int		n;
+	t_elem	*tmp;
+
+	tmp = (*stacks)->a;
+	n = (*stacks)->qnty_a;
+	while (n)
+	{
+		if (tmp->index >= (*stacks)->qnty_a - 3)
+			tmp->stay = 1;
+		tmp = tmp->next;
+		n--;
+	}
+}
+
 void			ft_sort_stacks(t_st **stacks)
 {
 	ft_print_stack_step(*stacks); //TODO del
@@ -23,8 +39,9 @@ void			ft_sort_stacks(t_st **stacks)
 			ft_sort_two_three_elem(stacks);
 		else
 		{
-			//todo presort
+			ft_presort_stack(stacks);
 			ft_start_sorting(stacks);
+			ft_sort_two_three_elem(stacks);
 			ft_get_stack_back(stacks);
 		}
 	}

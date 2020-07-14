@@ -55,6 +55,5 @@ void			ft_run_min_steps(t_steps *tmp, t_st **stacks)
 			cmd_str = cmd_ptr + 1;
 		}
 	}
-//	ft_pa_pb(stacks, 'a');
-	ft_print_operations((*stacks)->cmd);
+	ft_print_operations((*stacks)->cmd); //todo del
 }

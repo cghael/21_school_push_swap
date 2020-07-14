@@ -33,7 +33,7 @@ int			main(int argc, char *argv[])
 
 	stacks = ft_check_n_write_args(argc, argv);
 	ft_sort_stacks(&stacks);
-//	ft_print_operations(stacks->cmd);
+	ft_print_operations(stacks->cmd);
 	ft_count_operations(stacks->cmd); //TODO del
 	ft_free_push_swap_mem(stacks);
 
