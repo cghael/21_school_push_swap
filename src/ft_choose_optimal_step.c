@@ -37,7 +37,9 @@ static t_elem		*ft_find_y(int x_index, t_elem *stack, int qnty)
 	{
 		if ((x_index > tmp->index && x_index < tmp->back->index) ||
 			(x_index > tmp->index && tmp->index > tmp->back->index) ||
-			(x_index < tmp->index && tmp->index > tmp->back->index))
+			/*(x_index < tmp->index && tmp->index > tmp->back->index)*/
+			(x_index < tmp->index && x_index < tmp->back->index && \
+			tmp->index > tmp->back->index))
 			return (tmp);
 		tmp = tmp->next;
 		qnty--;
@@ -47,7 +49,7 @@ static t_elem		*ft_find_y(int x_index, t_elem *stack, int qnty)
 
 static void			ft_find_x2_y2(t_steps **tmp, t_st **stacks, int piece)
 {
-	(*tmp)->x2 = (*stacks)->a;
+	(*tmp)->x2 = (*stacks)->a->back;
 	while ((*tmp)->x2->index >= piece)
 		(*tmp)->x2 = (*tmp)->x2->back;
 	if ((*tmp)->x2 == (*tmp)->x1)

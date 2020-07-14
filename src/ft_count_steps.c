@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	ft_count_rra_rb(t_st **stacks, t_elem *x, t_elem *y, t_steps **stp)
+static void	ft_count_rra_rb(t_st **stacks, t_steps **stp, int point)
 {
 	int		counter_x;
 	int		counter_y;
@@ -21,21 +21,26 @@ static int	ft_count_rra_rb(t_st **stacks, t_elem *x, t_elem *y, t_steps **stp)
 	counter_x = 0;
 	counter_y = 0;
 	tmp = (*stacks)->a;
-	while (tmp != x)
+	while (tmp != (*stp)->x1 && point == 1 || tmp != (*stp)->x2 && point == 2)
 	{
 		counter_x++;
+		(*stp)->var[3 + point] = \
+							ft_strjoin((*stp)->var[3 + point], "rra\n");
 		tmp = tmp->back;
 	}
 	tmp = (*stacks)->b;
-	while (tmp != y)
+	while (tmp != (*stp)->y1 && point == 1 || tmp != (*stp)->y2 && point == 2)
 	{
 		counter_y++;
+		(*stp)->var[3 + point] = \
+							ft_strjoin((*stp)->var[3 + point], "rb\n");
 		tmp = tmp->next;
 	}
-	return (counter_x + counter_y);
+	(*stp)->var[3 + point] = \
+							ft_strjoin((*stp)->var[3 + point], "pa\n");
 }
 
-static int	ft_count_rra_rrb(t_st **stacks, t_elem *x, t_elem *y, t_steps **stp)
+static void	ft_count_ra_rrb(t_st **stacks, t_steps **stp, int point)
 {
 	int		counter_x;
 	int		counter_y;
@@ -44,79 +49,37 @@ static int	ft_count_rra_rrb(t_st **stacks, t_elem *x, t_elem *y, t_steps **stp)
 	counter_x = 0;
 	counter_y = 0;
 	tmp = (*stacks)->a;
-	while (tmp != x)
+	while (tmp != (*stp)->x1 && point == 1 || tmp != (*stp)->x2 && point == 2)
 	{
 		counter_x++;
-		tmp = tmp->back;
-	}
-	tmp = (*stacks)->b;
-	while (tmp != y)
-	{
-		counter_y++;
-		tmp = tmp->back;
-	}
-	if (counter_x > counter_y)
-		return (counter_x);
-	return (counter_y);
-}
-
-static int	ft_count_ra_rrb(t_st **stacks, t_elem *x, t_elem *y, t_steps **stp)
-{
-	int		counter_x;
-	int		counter_y;
-	t_elem	*tmp;
-
-	counter_x = 0;
-	counter_y = 0;
-	tmp = (*stacks)->a;
-	while (tmp != x)
-	{
-		counter_x++;
-		ft_new_order_add((*stp)->var[i]->cm_line, "ra");
+		(*stp)->var[-1 + point] = \
+							ft_strjoin((*stp)->var[-1 + point], "ra\n");
 		tmp = tmp->next;
 	}
 	tmp = (*stacks)->b;
-	while (tmp != y)
+	while (tmp != (*stp)->y1 && point == 1 || tmp != (*stp)->y2 && point == 2)
 	{
 		counter_y++;
+		(*stp)->var[-1 + point] = \
+							ft_strjoin((*stp)->var[-1 + point], "rrb\n");
 		tmp = tmp->back;
 	}
-	return (counter_x + counter_y);
-}
-
-static int	ft_count_ra_rb(t_st **stacks, t_elem *x, t_elem *y, t_steps **stp)
-{
-	int		counter_x;
-	int		counter_y;
-	t_elem	*tmp;
-
-	counter_x = 0;
-	counter_y = 0;
-	tmp = (*stacks)->a;
-	while (tmp != x)
-	{
-		counter_x++;
-		tmp = tmp->next;
-	}
-	tmp = (*stacks)->b;
-	while (tmp != y)
-	{
-		counter_y++;
-		tmp = tmp->next;
-	}
-	if (counter_x > counter_y)
-		return (counter_x);
-	return (counter_y);
+	(*stp)->var[-1 + point] = \
+							ft_strjoin((*stp)->var[-1 + point], "pa\n");
 }
 
 void		ft_count_steps(t_steps **stp, t_st **stacks)
 {
-	(*stp)->var[0].size = ft_count_ra_rb(stacks, (*stp)->x1, (*stp)->y1, stp);
-	(*stp)->var[1].size = ft_count_ra_rb(stacks, (*stp)->x2, (*stp)->y2, stp);
-	(*stp)->var[2].size = ft_count_ra_rrb(stacks, (*stp)->x1, (*stp)->y1, stp);
-	(*stp)->var[3].size = ft_count_ra_rrb(stacks, (*stp)->x2, (*stp)->y2, stp);
-	(*stp)->var[4].size = ft_count_rra_rrb(stacks, (*stp)->x1, (*stp)->y1, stp);
-	(*stp)->var[5].size = ft_count_rra_rrb(stacks, (*stp)->x2, (*stp)->y2, stp);
-	(*stp)->var[6].size = ft_count_rra_rb(stacks, (*stp)->x1, (*stp)->y1, stp);
-	(*stp)->var[7].size = ft_count_rra_rb(stacks, (*stp)->x2, (*stp)->y2, stp);
+	ft_count_ra_rb(stacks, stp, 1);
+	if ((*stp)->x2)
+		ft_count_ra_rb(stacks, stp, 2);
+	ft_count_ra_rrb(stacks, stp, 1);
+	if ((*stp)->x2)
+		ft_count_ra_rrb(stacks, stp, 2);
+	ft_count_rra_rrb(stacks, stp, 1);
+	if ((*stp)->x2)
+		ft_count_rra_rrb(stacks, stp, 2);
+	ft_count_rra_rb(stacks, stp, 1);
+	if ((*stp)->x2)
+		ft_count_rra_rb(stacks, stp, 2);
 }

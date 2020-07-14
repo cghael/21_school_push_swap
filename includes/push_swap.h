@@ -1,6 +1,14 @@
-//
-// Created by Anton on 04.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/14 14:57:53 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/14 14:57:56 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -40,8 +48,6 @@ typedef struct			s_elem
 	int 				value;
 	int					index;
 	int					stay;
-//	int					qnty;
-//	int					iter;
 	char				name;
 	struct s_elem		*next;
 	struct s_elem		*back;
@@ -54,27 +60,13 @@ typedef struct			s_order
 	int					step_numb;
 }						t_order;
 
-typedef struct			s_variant
-{
-	t_order				*cm_line;
-	int					size;
-}						t_variant;
-
 typedef struct			s_steps
 {
 	t_elem				*x1;
 	t_elem				*y1;
 	t_elem				*x2;
 	t_elem				*y2;
-	t_variant			var[8];
-//	int					x1_ra_rb;
-//	int					x1_ra_rrb;
-//	int					x1_rra_rrb;
-//	int					x1_rra_rb;
-//	int					x2_ra_rb;
-//	int					x2_ra_rrb;
-//	int					x2_rra_rrb;
-//	int					x2_rra_rb;
+	char				*var[8];
 }						t_steps;
 
 typedef struct			s_st
@@ -103,11 +95,14 @@ void					ft_start_sorting(t_st **stacks);
 void					ft_move_elem_to_b(t_st **stacks, int piece);
 t_steps*				ft_choose_optimal_step(t_st **stacks, int piece);
 void					ft_count_steps(t_steps **stp, t_st **stacks);
+void					ft_count_ra_rb(t_st **stacks, t_steps **stp, int point);
+void					ft_count_rra_rrb(t_st **stacks, t_steps **stp, int point);
 void					ft_run_min_steps(t_steps *tmp, t_st **stacks);
+void					ft_run_cmd(char *cmd, t_st **stacks);
 void					ft_get_stack_back(t_st **stacks);
 int						ft_steps_to_move_current_on_top_b(t_elem *current, t_st *stacks);
 int						ft_steps_ready_stack_a_to_push_current(t_elem *cur, t_st *stacks);
-void					ft_push_tmp_to_a(t_st **stacks, t_elem *tmp);
+//void					ft_push_tmp_to_a(t_st **stacks, t_elem *tmp);
 //int						ft_need_steps_to_push(t_elem *current, t_st *stacks);
 void					ft_sort_stacks(t_st **stacks);
 int						ft_check_stack_sorted(t_elem *stack, int qnty);
@@ -124,15 +119,15 @@ void					ft_rra_rrb(t_st **stacks, char stack_name);
 void					ft_rr_rrr(t_st **stacks, int side);
 void					ft_sa_sb(t_st **stacks, char stack_name);
 void					ft_print_stack_step(t_st *stacks);
-int						ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
-														t_elem **dst, int move);
-t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
-											t_elem **stack, int index);
-int						ft_find_rotate_side(t_elem *stack, int piece);
-int						ft_nearest_smaller_pivot(t_elem *stack, int pivot);
+//int						ft_push_to_dst_before_pivot(t_order **cmd, t_elem **src, \
+//														t_elem **dst, int move);
+//t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
+//											t_elem **stack, int index);
+//int						ft_find_rotate_side(t_elem *stack, int piece);
+//int						ft_nearest_smaller_pivot(t_elem *stack, int pivot);
 void					ft_sort_two_three_elem(t_st **stacks);
-void					ft_sort_last_step(t_order **cmd, t_elem **src, int step);
-int						ft_find_pivot(t_elem *src, int move);
-int						ft_side_to_rotate(int pivot, t_elem **src);
+//void					ft_sort_last_step(t_order **cmd, t_elem **src, int step);
+//int						ft_find_pivot(t_elem *src, int move);
+//int						ft_side_to_rotate(int pivot, t_elem **src);
 
-#endif //PUSH_SWAP_H
+#endif

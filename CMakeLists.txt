@@ -24,7 +24,7 @@ set(SOURCES src/main.c
         src/ft_find_rotate_side.c
         src/ft_nearest_smaller_pivot.c
         src/ft_sa_sb.c
-        src/ft_create_t_st_elem.c src/ft_sort_two_three_elem.c src/ft_sort_last_step.c src/ft_find_pivot.c src/ft_side_to_rotate.c src/ft_start_sorting.c src/ft_get_stack_back.c src/ft_need_steps_to_push.c src/ft_steps_to_move_current_on_top_b.c src/ft_push_tmp_to_a.c src/ft_steps_ready_stack_a_to_push_current.c src/ft_move_elem_to_b.c src/ft_choose_optimal_step.c src/ft_count_steps.c src/ft_run_min_steps.c src/ft_rr_rrr.c src/ft_count_ra_rb.c)
+        src/ft_create_t_st_elem.c src/ft_sort_two_three_elem.c src/ft_sort_last_step.c src/ft_find_pivot.c src/ft_side_to_rotate.c src/ft_start_sorting.c src/ft_get_stack_back.c src/ft_need_steps_to_push.c src/ft_steps_to_move_current_on_top_b.c src/ft_push_tmp_to_a.c src/ft_steps_ready_stack_a_to_push_current.c src/ft_move_elem_to_b.c src/ft_choose_optimal_step.c src/ft_count_steps.c src/ft_run_min_steps.c src/ft_rr_rrr.c src/ft_count_ra_rb.c src/ft_count_rra_rrb.c src/ft_run_cmd.c)
 
 include_directories(includes)
 include_directories(ft_printf/includes)
