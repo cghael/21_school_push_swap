@@ -16,6 +16,8 @@ void		ft_sort_two_three_elem(t_st **stacks)
 {
 	t_elem *stack;
 
+	if ((*stacks)->qnty_a > 3)
+		return ;
 	stack = (*stacks)->a;
 	if ((*stacks)->qnty_a == 2 && stack->index > stack->next->index)
 		ft_ra_rb(stacks, stack->name);

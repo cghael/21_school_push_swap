@@ -92,6 +92,7 @@ void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 
 void					ft_start_sorting(t_st **stacks);
+void					ft_presort_stack(t_st **stacks);
 void					ft_move_elem_to_b(t_st **stacks, int piece);
 t_steps*				ft_choose_optimal_step(t_st **stacks, int piece);
 void					ft_count_steps(t_steps **stp, t_st **stacks);

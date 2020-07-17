@@ -23,7 +23,7 @@ static int		ft_find_piece(int qnty)
 	if (qnty <= 300)
 		return (qnty / 8);
 	if (qnty <= 500)
-		return (qnty / 11);
+		return (qnty / 12);
 	if (qnty < 700)
 		return (qnty / 13);
 	return (qnty / 15);
@@ -52,16 +52,21 @@ void			ft_start_sorting(t_st **stacks)
 	int		piece;
 	int		piece_step;
 	int		qnty;
+//	int		max;
+//	t_elem	*sorted_piece;
 
 	qnty = (*stacks)->qnty_a;
 	piece_step = ft_find_piece((*stacks)->qnty_a); //todo
 	piece = piece_step;
+//	max = NOT_EXIST;
+	ft_presort_stack(stacks);
 	while ((*stacks)->a)
 	{
 		while (ft_is_any_elem_to_push((*stacks)->a, piece))
 		{
 			ft_move_elem_to_b(stacks, piece);
 			ft_print_stack_step(*stacks); //todo del
+//			max = ft_presort_stack(stacks, &sorted_piece, max);
 		}
 		if (piece > qnty)
 			break ;
