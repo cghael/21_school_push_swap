@@ -24,17 +24,18 @@ static void	ft_count_ra_rrb(t_st **stacks, t_steps **stp)
 	while (tmp != (*stp)->y)
 	{
 		counter_x++;
-		(*stp)->var[1] = ft_strjoin((*stp)->var[1], "ra\n");
+//		(*stp)->var[1] = ft_strjoin((*stp)->var[1], "ra\n");
 		tmp = tmp->next;
 	}
 	tmp = (*stacks)->b;
 	while (tmp != (*stp)->x)
 	{
 		counter_y++;
-		(*stp)->var[1] = ft_strjoin((*stp)->var[1], "rrb\n");
+//		(*stp)->var[1] = ft_strjoin((*stp)->var[1], "rrb\n");
 		tmp = tmp->back;
 	}
-	(*stp)->var[1] = ft_strjoin((*stp)->var[1], "pb\n");
+//	(*stp)->var[1] = ft_strjoin((*stp)->var[1], "pb\n");
+    (*stp)->var[1] = counter_x + counter_y + 1;
 }
 
 static void	ft_count_rra_rb(t_st **stacks, t_steps **stp)
@@ -49,17 +50,18 @@ static void	ft_count_rra_rb(t_st **stacks, t_steps **stp)
 	while (tmp != (*stp)->y)
 	{
 		counter_x++;
-		(*stp)->var[3] = ft_strjoin((*stp)->var[3], "rra\n");
+//		(*stp)->var[3] = ft_strjoin((*stp)->var[3], "rra\n");
 		tmp = tmp->back;
 	}
 	tmp = (*stacks)->b;
 	while (tmp != (*stp)->x)
 	{
 		counter_y++;
-		(*stp)->var[3] = ft_strjoin((*stp)->var[3], "rb\n");
+//		(*stp)->var[3] = ft_strjoin((*stp)->var[3], "rb\n");
 		tmp = tmp->next;
 	}
-	(*stp)->var[3] = ft_strjoin((*stp)->var[3], "pb\n");
+//	(*stp)->var[3] = ft_strjoin((*stp)->var[3], "pb\n");
+    (*stp)->var[3] = counter_x + counter_y + 1;
 }
 
 void		ft_count_steps(t_steps **stp, t_st **stacks)

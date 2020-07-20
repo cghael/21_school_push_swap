@@ -131,10 +131,12 @@ static void		ft_run_min_steps(t_steps *tmp, t_st **stacks)
 void			ft_get_stack_back(t_st **stacks)
 {
 	t_steps	*tmp;
+	char	*cmd;
 
 	while ((*stacks)->b)
 	{
 		tmp = ft_choose_optimal_step(stacks);
+		cmd = ft_create_cmd(tmp, stacks);
 		ft_run_min_steps(tmp, stacks);
 //		ft_print_stack_step(*stacks); //todo del
 	}

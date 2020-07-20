@@ -95,12 +95,13 @@ static t_steps		*ft_min_steps_elem(t_st **stacks, int counter)
 		if (tmp->min_value < min_steps || min_steps == 0)
 		{
 			if (min_elem)
-				ft_delete_t_steps(min_elem);
+				free(min_elem);
 			min_steps = tmp->min_value;
 			min_elem = tmp;
 		}
 		else
-			ft_delete_t_steps(tmp);
+			free(tmp);
+//			ft_delete_t_steps(tmp);
 		cur = cur->next;
 		counter--;
 	}

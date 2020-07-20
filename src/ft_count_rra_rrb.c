@@ -12,34 +12,34 @@
 
 #include "push_swap.h"
 
-static void		ft_write_steps(int counter_a, int counter_b, t_steps **stp)
-{
-	int rr_steps;
-
-	if (counter_a >= counter_b)
-	{
-		rr_steps = counter_b;
-		while (counter_a - counter_b)
-		{
-			(*stp)->var[2] = ft_strjoin((*stp)->var[2], "rra\n");
-			counter_a--;
-		}
-	}
-	else
-	{
-		rr_steps = counter_a;
-		while (counter_b - counter_a)
-		{
-			(*stp)->var[2] = ft_strjoin((*stp)->var[2], "rrb\n");
-			counter_b--;
-		}
-	}
-	while (rr_steps)
-	{
-		(*stp)->var[2] = ft_strjoin((*stp)->var[2], "rrr\n");
-		rr_steps--;
-	}
-}
+//static void		ft_write_steps(int counter_a, int counter_b, t_steps **stp)
+//{
+//	int rr_steps;
+//
+//	if (counter_a >= counter_b)
+//	{
+//		rr_steps = counter_b;
+//		while (counter_a - counter_b)
+//		{
+//			(*stp)->var[2] = ft_strjoin((*stp)->var[2], "rra\n");
+//			counter_a--;
+//		}
+//	}
+//	else
+//	{
+//		rr_steps = counter_a;
+//		while (counter_b - counter_a)
+//		{
+//			(*stp)->var[2] = ft_strjoin((*stp)->var[2], "rrb\n");
+//			counter_b--;
+//		}
+//	}
+//	while (rr_steps)
+//	{
+//		(*stp)->var[2] = ft_strjoin((*stp)->var[2], "rrr\n");
+//		rr_steps--;
+//	}
+//}
 
 void			ft_count_rra_rrb(t_st **stacks, t_steps **stp)
 {
@@ -61,6 +61,10 @@ void			ft_count_rra_rrb(t_st **stacks, t_steps **stp)
 		counter_b++;
 		tmp = tmp->back;
 	}
-	ft_write_steps(counter_a, counter_b, stp);
-	(*stp)->var[2] = ft_strjoin((*stp)->var[2], "pb\n");
+	if (counter_a >= counter_b)
+		(*stp)->var[2] = counter_a + 1;
+	else
+		(*stp)->var[2] = counter_b + 1;
+//	ft_write_steps(counter_a, counter_b, stp);
+//	(*stp)->var[2] = ft_strjoin((*stp)->var[2], "pb\n");
 }

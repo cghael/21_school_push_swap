@@ -15,23 +15,23 @@
 void			ft_min_steps_count(t_steps **tmp)
 {
 	int	i;
-	int	j;
-	int	counter;
+//	int	j;
+//	int	counter;
 
 	i = 0;
 	while (i < 4)
 	{
-		j = 0;
-		counter = 0;
-		while ((*tmp)->var[i][j])
+//		j = 0;
+//		counter = 0;
+//		while ((*tmp)->var[i][j])
+//		{
+////			if ((*tmp)->var[i][j] == '\n')
+////				counter++;
+//			j++;
+//		}
+		if ((*tmp)->min_value == 0 || (*tmp)->min_value > (*tmp)->var[i])
 		{
-			if ((*tmp)->var[i][j] == '\n')
-				counter++;
-			j++;
-		}
-		if ((*tmp)->min_value == 0 || (*tmp)->min_value > counter)
-		{
-			(*tmp)->min_value = counter;
+			(*tmp)->min_value = (*tmp)->var[i];
 			(*tmp)->min_var = i;
 		}
 		i++;
