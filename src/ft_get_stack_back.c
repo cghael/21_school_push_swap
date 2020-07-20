@@ -77,6 +77,11 @@ static void		ft_move_stack_a_min_elem_top(t_st **stacks)
 	}
 }
 
+static void		ft_move_first_elems_on_stacks_top(t_st **stacks)
+{
+
+}
+
 static void		ft_move_first_elem_on_top_b(t_st **stacks)
 {
 	int		rotate;
@@ -103,7 +108,7 @@ static void		ft_move_first_elem_on_top_b(t_st **stacks)
 
 void			ft_get_stack_back(t_st **stacks)
 {
-	ft_move_first_elem_on_top_b(stacks);
+	ft_move_first_elems_on_stacks_top(stacks);
 	ft_print_stack_step(*stacks);
 	while ((*stacks)->b)
 	{
