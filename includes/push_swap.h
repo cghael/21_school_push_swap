@@ -27,10 +27,6 @@
 # define NOT_SORTED			0
 # define ROTATE				1
 # define REVERSE			0
-# define NOT_EXIST			-1
-# define EXIST				1
-
-
 
 /*
 ** -------------------------- External Headers ---------------------------------
@@ -65,7 +61,6 @@ typedef struct			s_steps
 	t_elem				*x;
 	t_elem				*y;
 	int					var[4];
-//	char				*var[4];
 	int					min_value;
 	int					min_var;
 }						t_steps;
