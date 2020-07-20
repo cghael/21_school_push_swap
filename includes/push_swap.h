@@ -62,11 +62,11 @@ typedef struct			s_order
 
 typedef struct			s_steps
 {
-	t_elem				*x1;
-	t_elem				*y1;
-	t_elem				*x2;
-	t_elem				*y2;
-	char				*var[8];
+	t_elem				*x;
+	t_elem				*y;
+	char				*var[4];
+	int					min_value;
+	int					min_var;
 }						t_steps;
 
 typedef struct			s_st
@@ -94,13 +94,15 @@ void					ft_free_stack(t_elem *stack);
 void					ft_start_sorting(t_st **stacks);
 void					ft_presort_stack(t_st **stacks);
 void					ft_move_elem_to_b(t_st **stacks, int piece);
-t_steps*				ft_choose_optimal_step(t_st **stacks, int piece);
+t_steps*				ft_choose_optimal_step(t_st **stacks);
 void					ft_count_steps(t_steps **stp, t_st **stacks);
-void					ft_count_ra_rb(t_st **stacks, t_steps **stp, int point);
-void					ft_count_rra_rrb(t_st **stacks, t_steps **stp, int point);
-void					ft_run_min_steps(t_steps *tmp, t_st **stacks);
+void					ft_count_ra_rb(t_st **stacks, t_steps **stp);
+void					ft_count_rra_rrb(t_st **stacks, t_steps **stp);
+//void					ft_run_min_steps(t_steps *tmp, t_st **stacks);
 void					ft_run_cmd(char *cmd, t_st **stacks);
 void					ft_get_stack_back(t_st **stacks);
+void					ft_delete_t_steps(t_steps *tmp);
+void					ft_min_steps_count(t_steps **tmp);
 int						ft_steps_to_move_current_on_top_b(t_elem *current, t_st *stacks);
 int						ft_steps_ready_stack_a_to_push_current(t_elem *cur, t_st *stacks);
 //void					ft_push_tmp_to_a(t_st **stacks, t_elem *tmp);

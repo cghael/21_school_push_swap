@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move_elem_to_b.c                                :+:      :+:    :+:   */
+/*   ft_min_steps_count.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/30 11:18:54 by cghael            #+#    #+#             */
-/*   Updated: 2020/07/13 13:15:40 by cghael           ###   ########.fr       */
+/*   Created: 2020/07/20 14:34:06 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/20 14:34:08 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_move_elem_to_b(t_st **stacks, int piece)
+void			ft_min_steps_count(t_steps **tmp)
 {
-	t_steps	*tmp;
-	int		i;
+	int	i;
+	int	j;
+	int	counter;
 
-	tmp = ft_choose_optimal_step(stacks);
-	ft_run_min_steps(tmp, stacks);
 	i = 0;
-	while (i < 8)
+	while (i < 4)
 	{
-		free(tmp->var[i]);
+		j = 0;
+		counter = 0;
+		while ((*tmp)->var[i][j])
+		{
+			if ((*tmp)->var[i][j] == '\n')
+				counter++;
+			j++;
+		}
+		if ((*tmp)->min_value == 0 || (*tmp)->min_value > counter)
+		{
+			(*tmp)->min_value = counter;
+			(*tmp)->min_var = i;
+		}
 		i++;
 	}
-	free(tmp);
 }

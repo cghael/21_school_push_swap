@@ -12,28 +12,28 @@
 
 #include "push_swap.h"
 
-static char		*ft_choose_min_str(t_steps *tmp)
-{
-	int			min;
-	int			min_str;
-	int			i;
-	int			count;
-
-	min_str = 0;
-	i = 0;
-	min = INT_MAX;
-	while (i < 8)
-	{
-		count = ft_word_count(tmp->var[i], '\n');
-		if (min > count && count > 0)
-		{
-			min_str = i;
-			min = count;
-		}
-		i++;
-	}
-	return (tmp->var[min_str]);
-}
+//static char		*ft_choose_min_str(t_steps *tmp)
+//{
+//	int			min;
+//	int			min_str;
+//	int			i;
+//	int			count;
+//
+//	min_str = 0;
+//	i = 0;
+//	min = INT_MAX;
+//	while (i < 8)
+//	{
+//		count = ft_word_count(tmp->var[i], '\n');
+//		if (min > count && count > 0)
+//		{
+//			min_str = i;
+//			min = count;
+//		}
+//		i++;
+//	}
+//	return (tmp->var[min_str]);
+//}
 
 void			ft_run_min_steps(t_steps *tmp, t_st **stacks)
 {
@@ -41,7 +41,7 @@ void			ft_run_min_steps(t_steps *tmp, t_st **stacks)
 	char	*cmd_ptr;
 	char	*cmd;
 
-	cmd_str = ft_choose_min_str(tmp);
+	cmd_str = tmp->var[tmp->min_var];
 
 	if (cmd_str)
 	{
@@ -55,5 +55,6 @@ void			ft_run_min_steps(t_steps *tmp, t_st **stacks)
 			cmd_str = cmd_ptr + 1;
 		}
 	}
-	ft_print_operations((*stacks)->cmd); //todo del
+	ft_delete_t_steps(tmp);
+//	ft_print_operations((*stacks)->cmd); //todo del
 }

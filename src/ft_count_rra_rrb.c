@@ -12,55 +12,55 @@
 
 #include "push_swap.h"
 
-static void		ft_write_steps(int counter_x, int counter_y, t_steps **stp, int p)
+static void		ft_write_steps(int counter_a, int counter_b, t_steps **stp)
 {
 	int rr_steps;
 
-	if (counter_x >= counter_y)
+	if (counter_a >= counter_b)
 	{
-		rr_steps = counter_y;
-		while (counter_x - counter_y)
+		rr_steps = counter_b;
+		while (counter_a - counter_b)
 		{
-			(*stp)->var[5 + p] = ft_strjoin((*stp)->var[5 + p], "rra\n");
-			counter_x--;
+			(*stp)->var[2] = ft_strjoin((*stp)->var[2], "rra\n");
+			counter_a--;
 		}
 	}
 	else
 	{
-		rr_steps = counter_x;
-		while (counter_y - counter_x)
+		rr_steps = counter_a;
+		while (counter_b - counter_a)
 		{
-			(*stp)->var[5 + p] = ft_strjoin((*stp)->var[5 + p], "rrb\n");
-			counter_y--;
+			(*stp)->var[2] = ft_strjoin((*stp)->var[2], "rrb\n");
+			counter_b--;
 		}
 	}
 	while (rr_steps)
 	{
-		(*stp)->var[5 + p] = ft_strjoin((*stp)->var[5 + p], "rrr\n");
+		(*stp)->var[2] = ft_strjoin((*stp)->var[2], "rrr\n");
 		rr_steps--;
 	}
 }
 
-void			ft_count_rra_rrb(t_st **stacks, t_steps **stp, int point)
+void			ft_count_rra_rrb(t_st **stacks, t_steps **stp)
 {
-	int		counter_x;
-	int		counter_y;
+	int		counter_a;
+	int		counter_b;
 	t_elem	*tmp;
 
-	counter_x = 0;
-	counter_y = 0;
+	counter_a = 0;
+	counter_b = 0;
 	tmp = (*stacks)->a;
-	while (tmp != (*stp)->x1 && point == 1 || tmp != (*stp)->x2 && point == 2)
+	while (tmp != (*stp)->y)
 	{
-		counter_x++;
+		counter_a++;
 		tmp = tmp->back;
 	}
 	tmp = (*stacks)->b;
-	while (tmp != (*stp)->y1 && point == 1 || tmp != (*stp)->y2 && point == 2)
+	while (tmp != (*stp)->x)
 	{
-		counter_y++;
+		counter_b++;
 		tmp = tmp->back;
 	}
-	ft_write_steps(counter_x, counter_y, stp, point);
-	(*stp)->var[5 + point] = ft_strjoin((*stp)->var[5 + point], "pa\n");
+	ft_write_steps(counter_a, counter_b, stp);
+	(*stp)->var[2] = ft_strjoin((*stp)->var[2], "pb\n");
 }

@@ -12,17 +12,18 @@
 
 #include "push_swap.h"
 
-static t_steps		*ft_create_t_steps(void)
+static t_steps		*ft_create_t_steps(t_st **stacks)
 {
 	t_steps	*tmp;
 
 	tmp = ft_memalloc(sizeof(t_steps));
 	if (tmp == NULL)
-		return (NULL);
-	tmp->x1 = NULL;
-	tmp->y1 = NULL;
-	tmp->x2 = NULL;
-	tmp->y2 = NULL;
+	{
+		ft_free_push_swap_mem(*stacks);
+		ft_error_exit("Error malloc in ft_create_t_steps\n", tmp);
+	}
+	tmp->x = NULL;
+	tmp->y = NULL;
 	return (tmp);
 }
 
@@ -35,9 +36,10 @@ static t_elem		*ft_find_y(int x_index, t_elem *stack, int qnty)
 		return (tmp);
 	while (qnty)
 	{
-		if ((x_index > tmp->index && x_index < tmp->back->index) ||
-			(x_index > tmp->index && tmp->index > tmp->back->index) ||
-			(x_index < tmp->index && x_index < tmp->back->index && \
+		if ((x_index < tmp->index && tmp->index < tmp->back->index) ||
+			(x_index > tmp->index && tmp->index < tmp->back->index && \
+			x_index > tmp->back->index) ||
+			(x_index < tmp->index && x_index > tmp->back->index && \
 			tmp->index > tmp->back->index))
 			return (tmp);
 		tmp = tmp->next;
@@ -46,39 +48,69 @@ static t_elem		*ft_find_y(int x_index, t_elem *stack, int qnty)
 	return (NULL);
 }
 
-static void			ft_find_x2_y2(t_steps **tmp, t_st **stacks, int piece)
+//static void			ft_find_x2_y2(t_steps **tmp, t_st **stacks, int piece)
+//{
+//	(*tmp)->x2 = (*stacks)->a->back;
+//	while ((*tmp)->x2->index >= piece || (*tmp)->x2->stay != 0)
+//		(*tmp)->x2 = (*tmp)->x2->back;
+//	if ((*tmp)->x2 == (*tmp)->x1)
+//	{
+//		(*tmp)->x2 = NULL;
+//		return ;
+//	}
+//	(*tmp)->y2 = ft_find_y((*tmp)->x2->index, (*stacks)->b, (*stacks)->qnty_b);
+//}
+//
+//static void			ft_find_x1_y1(t_steps **tmp, t_st **stacks, int piece)
+//{
+//	(*tmp)->x1 = (*stacks)->a;
+//	while ((*tmp)->x1->index >= piece || (*tmp)->x1->stay != 0)
+//		(*tmp)->x1 = (*tmp)->x1->next;
+//	(*tmp)->y1 = ft_find_y((*tmp)->x1->index, (*stacks)->b, (*stacks)->qnty_b);
+//}
+
+static t_steps		*ft_cur_steps(t_elem *x, t_st **stacks, t_steps *tmp)
 {
-	(*tmp)->x2 = (*stacks)->a->back;
-	while ((*tmp)->x2->index >= piece || (*tmp)->x2->stay != 0)
-		(*tmp)->x2 = (*tmp)->x2->back;
-	if ((*tmp)->x2 == (*tmp)->x1)
+	tmp->x = x;
+	tmp->y = ft_find_y(tmp->x->index, (*stacks)->a, (*stacks)->qnty_a);
+	ft_count_steps(&tmp, stacks);
+	ft_min_steps_count(&tmp);
+	return (tmp);
+}
+
+static t_steps		*ft_min_steps_elem(t_st **stacks, int counter)
+{
+	t_steps	*tmp;
+	t_elem	*cur;
+	t_steps	*min_elem;
+	int		min_steps;
+
+	cur = (*stacks)->b;
+	min_steps = 0;
+	min_elem = NULL;
+	while (counter)
 	{
-		(*tmp)->x2 = NULL;
-		return ;
+		tmp = ft_create_t_steps(stacks);
+		tmp = ft_cur_steps(cur, stacks, tmp);
+		if (tmp->min_value < min_steps || min_steps == 0)
+		{
+			if (min_elem)
+				ft_delete_t_steps(min_elem);
+			min_steps = tmp->min_value;
+			min_elem = tmp;
+		}
+		else
+			ft_delete_t_steps(tmp);
+		cur = cur->next;
+		counter--;
 	}
-	(*tmp)->y2 = ft_find_y((*tmp)->x2->index, (*stacks)->b, (*stacks)->qnty_b);
+	return (min_elem);
 }
 
-static void			ft_find_x1_y1(t_steps **tmp, t_st **stacks, int piece)
-{
-	(*tmp)->x1 = (*stacks)->a;
-	while ((*tmp)->x1->index >= piece || (*tmp)->x1->stay != 0)
-		(*tmp)->x1 = (*tmp)->x1->next;
-	(*tmp)->y1 = ft_find_y((*tmp)->x1->index, (*stacks)->b, (*stacks)->qnty_b);
-}
-
-t_steps*			ft_choose_optimal_step(t_st **stacks, int piece)
+t_steps*			ft_choose_optimal_step(t_st **stacks)
 {
 	t_steps	*tmp;
 
-	tmp = ft_create_t_steps();
-	if (tmp == NULL)
-	{
-		ft_free_push_swap_mem(*stacks);
-		ft_error_exit("Error malloc in ft_choose_optimal_step\n", tmp);
-	}
-	ft_find_x1_y1(&tmp, stacks, piece);
-	ft_find_x2_y2(&tmp, stacks, piece);
-	ft_count_steps(&tmp, stacks);
-	return (tmp);//todo del
+	tmp = ft_min_steps_elem(stacks, (*stacks)->qnty_b);
+	return (tmp);
 }
