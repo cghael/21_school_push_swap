@@ -4,41 +4,51 @@
 
 #include "push_swap.h"
 
-static char	*ft_create_rra_rb_cmd(t_steps *tmp, t_st **stacks)
+static void	ft_create_rra_rb_cmd(t_steps *tmp, t_st **stacks)
 {
-	char	*cmd;
-	return (cmd);
+	while (tmp->y != (*stacks)->a)
+		ft_rra_rrb(stacks, (*stacks)->a->name);
+	while (tmp->x != (*stacks)->b)
+		ft_ra_rb(stacks, (*stacks)->b->name);
 }
 
-static char	*ft_create_rra_rrb_cmd(t_steps *tmp, t_st **stacks)
+static void	ft_create_rra_rrb_cmd(t_steps *tmp, t_st **stacks)
 {
-	char	*cmd;
-	return (cmd);
+	while ((*stacks)->a != tmp->y && (*stacks)->b != tmp->x)
+		ft_rr_rrr(stacks, REVERSE);
+	while ((*stacks)->a != tmp->y)
+		ft_rra_rrb(stacks, (*stacks)->a->name);
+	while ((*stacks)->b != tmp->x)
+		ft_rra_rrb(stacks, (*stacks)->b->name);
 }
 
-static char	*ft_create_ra_rrb_cmd(t_steps *tmp, t_st **stacks)
+static void	ft_create_ra_rrb_cmd(t_steps *tmp, t_st **stacks)
 {
-	char	*cmd;
-	return (cmd);
+	while (tmp->y != (*stacks)->a)
+		ft_ra_rb(stacks, (*stacks)->a->name);
+	while (tmp->x != (*stacks)->b)
+		ft_rra_rrb(stacks, (*stacks)->b->name);
 }
 
-static char	*ft_create_ra_rb_cmd(t_steps *tmp, t_st **stacks)
+static void	ft_create_ra_rb_cmd(t_steps *tmp, t_st **stacks)
 {
-	char	*cmd;
-	return (cmd);
+	while ((*stacks)->a != tmp->y && (*stacks)->b != tmp->x)
+		ft_rr_rrr(stacks, ROTATE);
+	while ((*stacks)->a != tmp->y)
+		ft_ra_rb(stacks, (*stacks)->a->name);
+	while ((*stacks)->b != tmp->x)
+		ft_ra_rb(stacks, (*stacks)->b->name);
 }
 
-char		*ft_create_cmd(t_steps *tmp, t_st **stacks)
+void		ft_create_cmd(t_steps *tmp, t_st **stacks)
 {
-	char *cmd;
-
 	if (tmp->min_var == 0)
-		cmd = ft_create_ra_rb_cmd(tmp, stacks);
+		ft_create_ra_rb_cmd(tmp, stacks);
 	else if (tmp->min_var == 1)
-		cmd = ft_create_ra_rrb_cmd(tmp, stacks);
+		ft_create_ra_rrb_cmd(tmp, stacks);
 	else if (tmp->min_var == 2)
-		cmd = ft_create_rra_rrb_cmd(tmp, stacks);
+		ft_create_rra_rrb_cmd(tmp, stacks);
 	else
-		cmd = ft_create_rra_rb_cmd(tmp, stacks);
-	return (cmd);
+		ft_create_rra_rb_cmd(tmp, stacks);
+	ft_pa_pb(stacks, (*stacks)->b->name);
 }

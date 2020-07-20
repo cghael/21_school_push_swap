@@ -12,6 +12,21 @@
 
 #include "push_swap.h"
 
+static void	ft_mark_last_three(t_st **stacks)
+{
+	int		counter;
+	t_elem	*tmp;
+
+	tmp = (*stacks)->a;
+	counter = (*stacks)->qnty_a;
+	while (counter)
+	{
+		if (tmp->index >= (*stacks)->qnty_a - 3)
+			tmp->stay = 1;
+		counter--;
+	}
+}
+
 static void	ft_mark_index(t_st **stacks, t_elem *first)
 {
 	t_elem	*tmp;
@@ -80,5 +95,8 @@ void			ft_presort_stack(t_st **stacks)
 		first = first->next;
 		counter--;
 	}
-	ft_mark_index(stacks, sqnce_first);
+	if (max_sqnce > 2)
+		ft_mark_index(stacks, sqnce_first);
+	else
+		ft_mark_last_three(stacks);
 }

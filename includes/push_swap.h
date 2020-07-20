@@ -100,7 +100,7 @@ void					ft_count_steps(t_steps **stp, t_st **stacks);
 void					ft_count_ra_rb(t_st **stacks, t_steps **stp);
 void					ft_count_rra_rrb(t_st **stacks, t_steps **stp);
 //void					ft_run_min_steps(t_steps *tmp, t_st **stacks);
-char					*ft_create_cmd(t_steps *tmp, t_st **stacks);
+void					ft_create_cmd(t_steps *tmp, t_st **stacks);
 void					ft_run_cmd(char *cmd, t_st **stacks);
 void					ft_get_stack_back(t_st **stacks);
 void					ft_delete_t_steps(t_steps *tmp);

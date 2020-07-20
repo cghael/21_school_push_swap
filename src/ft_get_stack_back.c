@@ -136,9 +136,9 @@ void			ft_get_stack_back(t_st **stacks)
 	while ((*stacks)->b)
 	{
 		tmp = ft_choose_optimal_step(stacks);
-		cmd = ft_create_cmd(tmp, stacks);
-		ft_run_min_steps(tmp, stacks);
-//		ft_print_stack_step(*stacks); //todo del
+		ft_create_cmd(tmp, stacks);
+//		ft_run_min_steps(tmp, stacks);
+		ft_print_stack_step(*stacks); //todo del
 	}
 	ft_move_stack_a_min_elem_top(stacks);
 //	tmp = ft_choose_optimal_step(stacks);
