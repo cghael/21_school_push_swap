@@ -32,7 +32,7 @@ set(SOURCES src/push_swap.c
         src/ft_run_cmd.c
         src/ft_presort_stack.c
         src/ft_min_steps_count.c
-        src/ft_create_cmd.c)
+        src/ft_create_cmd.c src/checker.c)
 
 include_directories(includes)
 include_directories(ft_printf/includes)

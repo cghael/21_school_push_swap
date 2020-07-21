@@ -22,10 +22,12 @@ void			ft_sort_stacks(t_st **stacks)
 		else
 		{
 			ft_start_sorting(stacks);
+			ft_print_operations((*stacks)->cmd); //TODO del
+			ft_print_stack_step(*stacks); //TODO del
 			ft_get_stack_back(stacks);
 		}
 	}
-	else
+	else //TODO del
 		ft_putstr("SORTED!!!\n\n"); //TODO del
 	ft_print_stack_step(*stacks); //TODO del
 }
