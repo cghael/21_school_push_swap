@@ -48,27 +48,6 @@ static t_elem		*ft_find_y(int x_index, t_elem *stack, int qnty)
 	return (NULL);
 }
 
-//static void			ft_find_x2_y2(t_steps **tmp, t_st **stacks, int piece)
-//{
-//	(*tmp)->x2 = (*stacks)->a->back;
-//	while ((*tmp)->x2->index >= piece || (*tmp)->x2->stay != 0)
-//		(*tmp)->x2 = (*tmp)->x2->back;
-//	if ((*tmp)->x2 == (*tmp)->x1)
-//	{
-//		(*tmp)->x2 = NULL;
-//		return ;
-//	}
-//	(*tmp)->y2 = ft_find_y((*tmp)->x2->index, (*stacks)->b, (*stacks)->qnty_b);
-//}
-//
-//static void			ft_find_x1_y1(t_steps **tmp, t_st **stacks, int piece)
-//{
-//	(*tmp)->x1 = (*stacks)->a;
-//	while ((*tmp)->x1->index >= piece || (*tmp)->x1->stay != 0)
-//		(*tmp)->x1 = (*tmp)->x1->next;
-//	(*tmp)->y1 = ft_find_y((*tmp)->x1->index, (*stacks)->b, (*stacks)->qnty_b);
-//}
-
 static t_steps		*ft_cur_steps(t_elem *x, t_st **stacks, t_steps *tmp)
 {
 	tmp->x = x;
@@ -101,7 +80,6 @@ static t_steps		*ft_min_steps_elem(t_st **stacks, int counter)
 		}
 		else
 			free(tmp);
-//			ft_delete_t_steps(tmp);
 		cur = cur->next;
 		counter--;
 	}

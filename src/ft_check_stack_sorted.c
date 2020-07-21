@@ -11,24 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
-static int	ft_stack_has_many_iters(t_elem *stack)
-{
-	t_elem *tmp;
-
-	tmp = stack->back;
-	if (stack->qnty > 2)
-	{
-		while (stack != tmp)
-		{
-			if (tmp->iter != stack->iter)
-				return (1);
-			stack = stack->next;
-		}
-	}
-	return (0);
-}
-*/
 
 int			ft_check_stack_sorted(t_elem *stack, int qnty)
 {
