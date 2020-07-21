@@ -3,7 +3,7 @@ project(push_swap C)
 
 set(CMAKE_C_STANDARD 90)
 
-set(SOURCES src/main.c
+set(SOURCES src/push_swap.c
         src/ft_check_n_write_args.c
         src/ft_one_agr.c
         src/ft_multi_arg.c
@@ -20,7 +20,19 @@ set(SOURCES src/main.c
         src/ft_ra_rb.c
         src/ft_rra_rrb.c
         src/ft_sa_sb.c
-        src/ft_create_t_st_elem.c src/ft_sort_two_three_elem.c src/ft_start_sorting.c src/ft_get_stack_back.c src/ft_choose_optimal_step.c src/ft_count_steps.c src/ft_rr_rrr.c src/ft_count_ra_rb.c src/ft_count_rra_rrb.c src/ft_run_cmd.c src/ft_presort_stack.c src/ft_min_steps_count.c src/ft_create_cmd.c)
+        src/ft_create_t_st_elem.c
+        src/ft_sort_two_three_elem.c
+        src/ft_start_sorting.c
+        src/ft_get_stack_back.c
+        src/ft_choose_optimal_step.c
+        src/ft_count_steps.c
+        src/ft_rr_rrr.c
+        src/ft_count_ra_rb.c
+        src/ft_count_rra_rrb.c
+        src/ft_run_cmd.c
+        src/ft_presort_stack.c
+        src/ft_min_steps_count.c
+        src/ft_create_cmd.c)
 
 include_directories(includes)
 include_directories(ft_printf/includes)
