@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void			ft_run_cmd(char *cmd, t_st **stacks)
+void			ft_run_cmd(char *cmd, t_st **stacks, t_flags options)
 {
 	if (ft_strequ(cmd, "ra"))
 		ft_ra_rb(stacks, 'a');
@@ -34,4 +34,6 @@ void			ft_run_cmd(char *cmd, t_st **stacks)
 		ft_sa_sb(stacks, 'a');
 	else if (ft_strequ(cmd, "sb"))
 		ft_sa_sb(stacks, 'b');
+	if (options.visual)
+		ft_print_stack_step(*stacks);
 }

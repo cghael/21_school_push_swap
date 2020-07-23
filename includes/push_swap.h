@@ -36,6 +36,7 @@
 
 # include "ft_printf.h"
 # include "libft.h"
+# include "ft_get_next_line.h"
 
 /*
 ** ------------------------- Structures Definition -----------------------------
@@ -76,6 +77,12 @@ typedef struct			s_st
 	t_order				*cmd;
 }						t_st;
 
+typedef struct			s_flags
+{
+	int					visual;
+	int					color;
+}						t_flags;
+
 /*
 ** -----------------------------------------------------------------------------
 ** -------------------------------- Sources ------------------------------------
@@ -95,7 +102,7 @@ void					ft_count_steps(t_steps **stp, t_st **stacks);
 void					ft_count_ra_rb(t_st **stacks, t_steps **stp);
 void					ft_count_rra_rrb(t_st **stacks, t_steps **stp);
 void					ft_create_cmd(t_steps *tmp, t_st **stacks);
-void					ft_run_cmd(char *cmd, t_st **stacks);
+void					ft_run_cmd(char *cmd, t_st **stacks, t_flags options);
 void					ft_get_stack_back(t_st **stacks);
 void					ft_min_steps_count(t_steps **tmp);
 void					ft_sort_stacks(t_st **stacks);
