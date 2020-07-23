@@ -35,5 +35,5 @@ void			ft_run_cmd(char *cmd, t_st **stacks, t_flags options)
 	else if (ft_strequ(cmd, "sb"))
 		ft_sa_sb(stacks, 'b');
 	if (options.visual)
-		ft_print_stack_step(*stacks);
+		ft_print_stack_step(*stacks, cmd, options.color);
 }

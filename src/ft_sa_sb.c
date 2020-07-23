@@ -16,14 +16,17 @@ static void	ft_swap_top_two_elem(t_elem **stack)
 {
 	t_elem	*tmp;
 
-	tmp = (*stack)->next;
-	(*stack)->next = tmp->next;
-	tmp->next->back = *stack;
-	tmp->next = *stack;
-	tmp->back = (*stack)->back;
-	(*stack)->back->next = tmp;
-	(*stack)->back = tmp;
-	*stack = tmp;
+	if (*stack)
+	{
+		tmp = (*stack)->next;
+		(*stack)->next = tmp->next;
+		tmp->next->back = *stack;
+		tmp->next = *stack;
+		tmp->back = (*stack)->back;
+		(*stack)->back->next = tmp;
+		(*stack)->back = tmp;
+		*stack = tmp;
+	}
 }
 
 void		ft_sa_sb(t_st **stacks, char stack_name)

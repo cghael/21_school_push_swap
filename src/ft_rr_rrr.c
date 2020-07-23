@@ -16,14 +16,18 @@ void		ft_rr_rrr(t_st **stacks, int side)
 {
 	if (ROTATE == side)
 	{
-		(*stacks)->a = (*stacks)->a->next;
-		(*stacks)->b = (*stacks)->b->next;
+		if ((*stacks)->a)
+			(*stacks)->a = (*stacks)->a->next;
+		if ((*stacks)->b)
+			(*stacks)->b = (*stacks)->b->next;
 		ft_new_order_add(&(*stacks)->cmd, "rr");
 	}
 	else
 	{
-		(*stacks)->a = (*stacks)->a->back;
-		(*stacks)->b = (*stacks)->b->back;
+		if ((*stacks)->a)
+			(*stacks)->a = (*stacks)->a->back;
+		if ((*stacks)->b)
+			(*stacks)->b = (*stacks)->b->back;
 		ft_new_order_add(&(*stacks)->cmd, "rrr");
 	}
 }

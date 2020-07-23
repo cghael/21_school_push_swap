@@ -37,6 +37,7 @@
 # include "ft_printf.h"
 # include "libft.h"
 # include "ft_get_next_line.h"
+# include <fcntl.h>
 
 /*
 ** ------------------------- Structures Definition -----------------------------
@@ -116,7 +117,7 @@ void					ft_ra_rb(t_st **stacks, char stack_name);
 void					ft_rra_rrb(t_st **stacks, char stack_name);
 void					ft_rr_rrr(t_st **stacks, int side);
 void					ft_sa_sb(t_st **stacks, char stack_name);
-void					ft_print_stack_step(t_st *stacks);
+void					ft_print_stack_step(t_st *stacks, char *cmd, int color);
 void					ft_sort_two_three_elem(t_st **stacks);
 
 #endif

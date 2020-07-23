@@ -38,16 +38,13 @@ static void	ft_checker(t_st **stacks, t_flags options, int argc, char *argv[])
 	int		size;
 	char	*line;
 
-	ft_putstr("2\n");
 	if (options.visual || options.color)
-		ft_print_stack_step(*stacks);
-	ft_putstr("4\n");
+		ft_print_stack_step(*stacks, NULL, options.color);
 	while ((size = ft_get_next_line(0, &line)) > 0)
 	{
 		ft_run_cmd(line, stacks, options);
 		free(line);
 	}
-	ft_putstr("3\n");
 	if (size == -1)
 	{
 		ft_free_push_swap_mem(*stacks);
@@ -55,11 +52,10 @@ static void	ft_checker(t_st **stacks, t_flags options, int argc, char *argv[])
 	}
 	if ((*stacks)->b == NULL && \
 						ft_check_stack_sorted((*stacks)->a, (*stacks)->qnty_a))
-//		ft_printf("\n \e[1;32m<<< OK :) >>>\e[m \n");
-		ft_putstr("\n \e[1;32m<<< OK :) >>>\e[m \n");
+		ft_printf("\n \e[1;32m<<< OK :) >>>\e[m \n");
 	else
-//		ft_printf("\n \e[1;31m<<< KO :'( >>>\e[m \n");
-		ft_putstr("\n \e[1;31m<<< KO :'( >>>\e[m \n");
+		ft_printf("\n \e[1;31m<<< KO :'( >>>\e[m \n");
+	ft_free_push_swap_mem(*stacks);
 }
 
 int			main(int argc, char *argv[])
