@@ -14,7 +14,7 @@
 
 static void	ft_add_new_to_stack(t_elem **stack, t_elem *new)
 {
-	t_elem *tmp;
+	t_elem	*tmp;
 	int		counter;
 
 	tmp = *stack;
@@ -48,7 +48,7 @@ void		ft_new_elem_add(t_elem **stack, int numb)
 	if (new == NULL)
 	{
 		ft_free_stack(*stack);
-		ft_error_exit("Error malloc in ft_new_elem_add\n", new);
+		ft_error_exit("Error malloc in ft_new_elem_add\n", NULL);
 	}
 	new->value = numb;
 	new->next = NULL;

@@ -46,6 +46,7 @@ void			ft_get_stack_back(t_st **stacks)
 	{
 		tmp = ft_choose_optimal_step(stacks);
 		ft_create_cmd(tmp, stacks);
+		free(tmp);
 	}
 	ft_move_stack_a_min_elem_top(stacks);
 }

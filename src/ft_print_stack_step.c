@@ -51,7 +51,8 @@ static int	ft_line_flag(int c_cnt, char *cmd, char name, int qnty)
 	{
 		if ((c_cnt == 0 && (ft_strequ(cmd, "rb") || ft_strequ(cmd, "rr") || \
 			ft_strequ(cmd, "pa"))) || (c_cnt < 2 && ft_strequ(cmd, "sb")) || \
-			(c_cnt == qnty - 1 && (ft_strequ(cmd, "rrr") || ft_strequ(cmd, "rrb"))))
+			(c_cnt == qnty - 1 && (ft_strequ(cmd, "rrr") || \
+			ft_strequ(cmd, "rrb"))))
 			return (1);
 		else
 			return (0);
@@ -75,11 +76,11 @@ void		ft_print_stack_step(t_st *stacks, char *cmd, int color)
 	while (counter_a > 0 || counter_b > 0)
 	{
 		if (stacks->a && color)
-			c_flag = ft_line_flag(c_counter, cmd, stacks->a->name, stacks->qnty_a);
+			c_flag = ft_line_flag(c_counter, cmd, 'a', stacks->qnty_a);
 		ft_print_line(counter_a, &stacks->a, 'a', c_flag);
 		c_flag = 0;
 		if (stacks->b && color)
-			c_flag = ft_line_flag(c_counter, cmd, stacks->b->name, stacks->qnty_b);
+			c_flag = ft_line_flag(c_counter, cmd, 'b', stacks->qnty_b);
 		ft_print_line(counter_b, &stacks->b, 'b', c_flag);
 		counter_a--;
 		counter_b--;

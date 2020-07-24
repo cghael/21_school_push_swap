@@ -17,27 +17,25 @@
 ** --------------------------- Macros \ Static ---------------------------------
 */
 
-# define USAGE_PUSH_SWAP	"usage: ./push_swap args\n"
-# define ERROR_EXIT_CODE	1
-# define ERR_ARGS			"Error. Please, use ONLY numbers and spaces.\n"
-# define ERR_UNIQ_ARGS		"Error. Please, enter UNIQUE args and try again.\n"
-# define NOT_A_NUMBER(x)	(x < 48 || x > 57)
+# define USAGE_PS		"usage: ./push_swap args\n"
+# define ERROR_EXIT		1
+# define ERR_ARGS		"Error\n"
+# define ERR_UNIQ_ARGS	"Error\n"
+# define NOT_A_NUMB(x)	(x < 48 || x > 57)
 
-# define SORTED				1
-# define NOT_SORTED			0
-# define ROTATE				1
-# define REVERSE			0
-# define TRUE				1
-# define FALSE				0
+# define SORTED			1
+# define NOT_SORTED		0
+# define ROTATE			1
+# define REVERSE		0
+# define TRUE			1
+# define FALSE			0
 
 /*
 ** -------------------------- External Headers ---------------------------------
 */
 
 # include "ft_printf.h"
-//# include "libft.h"
 # include "ft_get_next_line.h"
-//# include <fcntl.h>
 
 /*
 ** ------------------------- Structures Definition -----------------------------
@@ -45,7 +43,7 @@
 
 typedef struct			s_elem
 {
-	int 				value;
+	int					value;
 	int					index;
 	int					stay;
 	char				name;
@@ -98,7 +96,7 @@ void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
 void					ft_start_sorting(t_st **stacks);
 void					ft_presort_stack(t_st **stacks);
-t_steps*				ft_choose_optimal_step(t_st **stacks);
+t_steps					*ft_choose_optimal_step(t_st **stacks);
 void					ft_count_steps(t_steps **stp, t_st **stacks);
 void					ft_count_ra_rb(t_st **stacks, t_steps **stp);
 void					ft_count_rra_rrb(t_st **stacks, t_steps **stp);

@@ -32,7 +32,7 @@ static void	ft_count_ra_rrb(t_st **stacks, t_steps **stp)
 		counter_y++;
 		tmp = tmp->back;
 	}
-    (*stp)->var[1] = counter_x + counter_y + 1;
+	(*stp)->var[1] = counter_x + counter_y + 1;
 }
 
 static void	ft_count_rra_rb(t_st **stacks, t_steps **stp)
@@ -55,7 +55,7 @@ static void	ft_count_rra_rb(t_st **stacks, t_steps **stp)
 		counter_y++;
 		tmp = tmp->next;
 	}
-    (*stp)->var[3] = counter_x + counter_y + 1;
+	(*stp)->var[3] = counter_x + counter_y + 1;
 }
 
 void		ft_count_steps(t_steps **stp, t_st **stacks)

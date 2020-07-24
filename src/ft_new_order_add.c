@@ -43,7 +43,7 @@ static t_order	*ft_write_command(t_order *new, char *str)
 	return (new);
 }
 
-void		ft_new_order_add(t_order **cmd_stack, char *str)
+void			ft_new_order_add(t_order **cmd_stack, char *str)
 {
 	t_order	*new;
 
@@ -51,7 +51,7 @@ void		ft_new_order_add(t_order **cmd_stack, char *str)
 	if (new == NULL)
 	{
 		ft_free_cmd_stack(*cmd_stack);
-		ft_error_exit("Error malloc in ft_new_order_add\n", new);
+		ft_error_exit("Error malloc in ft_new_order_add\n", NULL);
 	}
 	ft_bzero(new, sizeof(t_order));
 	new = ft_write_command(new, str);

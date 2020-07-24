@@ -86,7 +86,7 @@ static t_steps		*ft_min_steps_elem(t_st **stacks, int counter)
 	return (min_elem);
 }
 
-t_steps*			ft_choose_optimal_step(t_st **stacks)
+t_steps			*ft_choose_optimal_step(t_st **stacks)
 {
 	t_steps	*tmp;
 

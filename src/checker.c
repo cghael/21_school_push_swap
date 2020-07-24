@@ -14,7 +14,7 @@
 
 static t_flags	ft_check_flags(int argc, char *argv[])
 {
-	t_flags tmp;
+	t_flags	tmp;
 
 	tmp.color = FALSE;
 	tmp.visual = FALSE;
@@ -33,7 +33,7 @@ static t_flags	ft_check_flags(int argc, char *argv[])
 	return (tmp);
 }
 
-static void	ft_checker(t_st **stacks, t_flags options)
+static void		ft_checker(t_st **stacks, t_flags options)
 {
 	int		size;
 	char	*line;
@@ -58,7 +58,7 @@ static void	ft_checker(t_st **stacks, t_flags options)
 	ft_free_push_swap_mem(*stacks);
 }
 
-int			main(int argc, char *argv[])
+int				main(int argc, char *argv[])
 {
 	t_st	*stacks;
 	t_flags	options;

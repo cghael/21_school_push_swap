@@ -18,7 +18,7 @@ t_st	*ft_create_t_st_elem(void)
 
 	new = malloc(sizeof(t_st));
 	if (new == NULL)
-		ft_error_exit("Error malloc in ft_create_t_st_elem\n", new);
+		ft_error_exit("Error malloc in ft_create_t_st_elem\n", NULL);
 	new->a = NULL;
 	new->b = NULL;
 	new->cmd = NULL;

@@ -67,8 +67,8 @@ static void		ft_check_args_number(int argc)
 {
 	if (argc < 2)
 	{
-		ft_putstr(USAGE_PUSH_SWAP);
-		exit (ERROR_EXIT_CODE);
+		ft_putstr(USAGE_PS);
+		exit(ERROR_EXIT);
 	}
 }
 
