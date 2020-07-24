@@ -35,9 +35,9 @@
 */
 
 # include "ft_printf.h"
-# include "libft.h"
+//# include "libft.h"
 # include "ft_get_next_line.h"
-# include <fcntl.h>
+//# include <fcntl.h>
 
 /*
 ** ------------------------- Structures Definition -----------------------------

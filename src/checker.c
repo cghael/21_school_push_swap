@@ -33,7 +33,7 @@ static t_flags	ft_check_flags(int argc, char *argv[])
 	return (tmp);
 }
 
-static void	ft_checker(t_st **stacks, t_flags options, int argc, char *argv[])
+static void	ft_checker(t_st **stacks, t_flags options)
 {
 	int		size;
 	char	*line;
@@ -70,6 +70,6 @@ int			main(int argc, char *argv[])
 		argv++;
 	}
 	stacks = ft_check_n_write_args(argc, argv);
-	ft_checker(&stacks, options, argc, argv);
+	ft_checker(&stacks, options);
 	return (0);
 }

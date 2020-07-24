@@ -14,7 +14,7 @@
 
 void			ft_sort_stacks(t_st **stacks)
 {
-	ft_print_stack_step(*stacks); //TODO del
+//	ft_print_stack_step(*stacks); //TODO del
 	if (NOT_SORTED == ft_check_stack_sorted((*stacks)->a, (*stacks)->qnty_a))
 	{
 		if ((*stacks)->qnty_a <= 3)
@@ -23,11 +23,11 @@ void			ft_sort_stacks(t_st **stacks)
 		{
 			ft_start_sorting(stacks);
 			ft_print_operations((*stacks)->cmd); //TODO del
-			ft_print_stack_step(*stacks); //TODO del
+//			ft_print_stack_step(*stacks); //TODO del
 			ft_get_stack_back(stacks);
 		}
 	}
 	else //TODO del
 		ft_putstr("SORTED!!!\n\n"); //TODO del
-	ft_print_stack_step(*stacks); //TODO del
+//	ft_print_stack_step(*stacks); //TODO del
 }

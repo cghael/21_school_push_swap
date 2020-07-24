@@ -74,11 +74,11 @@ void		ft_print_stack_step(t_st *stacks, char *cmd, int color)
 	ft_printf("STACK A|STACK B\n-------|-------\n");
 	while (counter_a > 0 || counter_b > 0)
 	{
-		if (stacks->a)
+		if (stacks->a && color)
 			c_flag = ft_line_flag(c_counter, cmd, stacks->a->name, stacks->qnty_a);
 		ft_print_line(counter_a, &stacks->a, 'a', c_flag);
 		c_flag = 0;
-		if (stacks->b)
+		if (stacks->b && color)
 			c_flag = ft_line_flag(c_counter, cmd, stacks->b->name, stacks->qnty_b);
 		ft_print_line(counter_b, &stacks->b, 'b', c_flag);
 		counter_a--;
