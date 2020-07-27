@@ -52,15 +52,22 @@ set(SOURCES_CH src/checker.c
         src/ft_check_stack_sorted.c
         src/ft_new_order_add.c)
 
+set(SOURCES_V src/visual.c
+        src/ft_get_push_swap.c
+        src/ft_get_vis.c)
+
 include_directories(includes)
 include_directories(ft_printf/includes)
 include_directories(ft_printf/libft/inc)
+include_directories(minilibx_macos)
 
 add_subdirectory(ft_printf)
 
 add_executable(push_swap ${SOURCES_PS})
 add_executable(checker ${SOURCES_CH})
+add_executable(visual ${SOURCES_V})
 
 target_link_libraries(push_swap libftprintf)
 target_link_libraries(checker libftprintf)
+target_link_libraries(visual libftprintf, mlx)
 
