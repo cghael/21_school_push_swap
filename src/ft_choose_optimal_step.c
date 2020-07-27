@@ -20,7 +20,7 @@ static t_steps		*ft_create_t_steps(t_st **stacks)
 	if (tmp == NULL)
 	{
 		ft_free_push_swap_mem(*stacks);
-		ft_error_exit("Error malloc in ft_create_t_steps\n", tmp);
+		ft_error_exit("Error malloc in ft_create_t_steps\n", NULL);
 	}
 	tmp->x = NULL;
 	tmp->y = NULL;

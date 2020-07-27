@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_push_swap.c                                 :+:      :+:    :+:   */
+/*   ft_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/27 13:33:27 by cghael            #+#    #+#             */
-/*   Updated: 2020/07/27 13:33:28 by cghael           ###   ########.fr       */
+/*   Created: 2020/07/27 13:33:11 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/27 13:33:13 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visual.h"
 
-t_ps		*ft_get_push_swap(int argc, char *argv[])
+static void		ft_draw_backgraund(t_vis *vps)
 {
-	t_ps	*tmp;
+	int *img;
+	int i;
 
-	tmp = ft_memalloc(sizeof(t_ps));
-	if (!tmp)
-		ft_error_exit("Error in ft_get_push_swap()\n", NULL);
-	tmp->stacks = ft_check_n_write_args(argc, argv);
-	tmp->width = WIDTH / 2 / tmp->stacks->qnty_a;
-	tmp->height = HEIGHT / tmp->stacks->qnty_a;
-	return (tmp);
+	ft_bzero(vps->data_addr, WIDTH * HEIGHT * (vps->bits_per_pixel / 8));
+	i = 0;
+	img = (int*)(vps->data_addr);
+	while (i < HEIGHT * WIDTH)
+	{
+		img[i] = GREY;
+		i++;
+	}
+}
+
+void			ft_draw(t_ps *push_swap, t_vis *vps)
+{
+	ft_draw_backgraund(vps);
+	ft_draw_stacks(push_swap, vps);
+	mlx_put_image_to_window(vps->mlx, vps->wndw, vps->img, 0, 0);
+	mlx_do_sync(vps->mlx);
 }
