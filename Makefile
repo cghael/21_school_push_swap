@@ -143,6 +143,7 @@ clean:
 
 fclean: clean
 	@rm -f $(LIBFTPRINTF)
+	@rm -f $(LIBFT)
 	@echo "$(NAME_PS): $(RED)$(LIBFTPRINTF) deleted$(END)"
 	@rm -f $(NAME_PS)
 	@echo "$(NAME_PS): $(RED)$(NAME_PS) deleted$(END)"
