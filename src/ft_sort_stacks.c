@@ -21,6 +21,8 @@ void			ft_sort_stacks(t_st **stacks)
 		else
 		{
 			ft_start_sorting(stacks);
+			if ((*stacks)->qnty_a == 3)
+				ft_sort_two_three_elem(stacks);
 			ft_get_stack_back(stacks);
 		}
 	}

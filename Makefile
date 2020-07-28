@@ -12,11 +12,14 @@
 
 NAME_PS = push_swap
 NAME_CH = checker
+NAME_VS = visual
 
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
-LIBRARIES = -lftprintf -L$(LIBFTPRINTF_DIR) -lft -L$(LIBFT_DIR)
-INCLUDES = -I$(HEADERS_DIR) -I$(LIBFTPRINTF_HEADERS) -I$(LIBFT_HEADERS)
+LIBRARIES = -lftprintf -L$(LIBFTPRINTF_DIR) -lft -L$(LIBFT_DIR) \
+			-lmlx -L$(MINILIBX_DIRECTORY) -framework OpenGL -framework AppKit
+INCLUDES = -I$(HEADERS_DIR) -I$(LIBFTPRINTF_HEADERS) \
+			-I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
 
 LIBFT = $(LIBFT_DIR)libft.a
 LIBFT_DIR = ./ft_printf/libft/
@@ -26,7 +29,12 @@ LIBFTPRINTF = $(LIBFTPRINTF_DIR)libftprintf.a
 LIBFTPRINTF_DIR = ./ft_printf/
 LIBFTPRINTF_HEADERS = $(LIBFTPRINTF_DIR)includes/
 
-HEADERS_LIST = push_swap.h
+MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
+MINILIBX_DIRECTORY = ./minilibx_macos/
+MINILIBX_HEADERS = $(MINILIBX_DIRECTORY)
+
+HEADERS_LIST = push_swap.h \
+				visual.h
 HEADERS_DIR = includes/
 HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
@@ -59,20 +67,30 @@ SRC_LIST = ft_check_n_write_args.c \
            ft_presort_stack.c \
            ft_min_steps_count.c \
            ft_run_cmd.c \
-           ft_create_cmd.c
+           ft_create_cmd.c \
+           ft_get_push_swap.c \
+           ft_get_vis.c \
+           ft_draw.c \
+           ft_draw_stacks.c
 SRC_LIST_PS = push_swap.c
 SRC_LIST_CH = checker.c
+SRC_LIST_VS = visual.c
+
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 SRC_PS = $(addprefix $(SRC_DIR), $(SRC_LIST_PS))
 SRC_CH = $(addprefix $(SRC_DIR), $(SRC_LIST_CH))
+SRC_VS = $(addprefix $(SRC_DIR), $(SRC_LIST_VS))
 
 OBJ_DIR = objects/
 OBJ_LIST = $(patsubst %.c, %.o, $(SRC_LIST))
 OBJ_LIST_PS = $(patsubst %.c, %.o, $(SRC_LIST_PS))
 OBJ_LIST_CH = $(patsubst %.c, %.o, $(SRC_LIST_CH))
+OBJ_LIST_VS = $(patsubst %.c, %.o, $(SRC_LIST_VS))
+
 OBJ	= $(addprefix $(OBJ_DIR), $(OBJ_LIST))
 OBJ_PS	= $(addprefix $(OBJ_DIR), $(OBJ_LIST_PS))
 OBJ_CH	= $(addprefix $(OBJ_DIR), $(OBJ_LIST_CH))
+OBJ_VS	= $(addprefix $(OBJ_DIR), $(OBJ_LIST_VS))
 
 # COLORS
 
@@ -83,7 +101,7 @@ END = \033[0m
 
 .PHONY: all clean fclean re
 
-all: $(NAME_PS) $(NAME_CH)
+all: $(NAME_PS) $(NAME_CH) $(NAME_VS)
 
 $(NAME_PS): $(LIBFTPRINTF) $(OBJ_DIR) $(OBJ) $(OBJ_PS)
 	@$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJ) $(OBJ_PS) -o $(NAME_PS)
@@ -94,6 +112,11 @@ $(NAME_CH): $(LIBFTPRINTF) $(OBJ_DIR) $(OBJ) $(OBJ_CH)
 	@$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJ) $(OBJ_CH) -o $(NAME_CH)
 	@echo "\n$(NAME_CH): $(GRN)$(NAME_CH) object files were created$(RESET)"
 	@echo "$(NAME_CH): $(GRN)$(NAME_CH) was created$(RESET)"
+
+$(NAME_VS): $(LIBFTPRINTF) $(MINILIBX) $(OBJ_DIR) $(OBJ) $(OBJ_VS)
+	@$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJ) $(OBJ_VS) -o $(NAME_VS)
+	@echo "\n$(NAME_VS): $(GRN)$(NAME_VS) object files were created$(RESET)"
+	@echo "$(NAME_VS): $(GRN)$(NAME_VS) was created$(RESET)"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -107,8 +130,13 @@ $(LIBFTPRINTF):
 	@echo "$(NAME_PS): $(GRN)Creating $(LIBFTPRINTF)...$(END)"
 	@$(MAKE) -C $(LIBFTPRINTF_DIR)
 
+$(MINILIBX):
+	@echo "$(NAME_PS): $(GREEN)Creating $(MINILIBX)...$(RESET)"
+	@$(MAKE) -C $(MINILIBX_DIRECTORY)
+
 clean:
 	@$(MAKE) -C $(LIBFTPRINTF_DIR) clean
+	@$(MAKE) -C $(MINILIBX_DIRECTORY) clean
 	@rm -rf $(OBJ_DIR)
 	@echo "$(NAME_PS): $(RED)$(OBJ_DIR) deleted$(END)"
 	@echo "$(NAME_PS): $(RED)*.o files deleted$(END)"
@@ -120,6 +148,8 @@ fclean: clean
 	@echo "$(NAME_PS): $(RED)$(NAME_PS) deleted$(END)"
 	@rm -f $(NAME_CH)
 	@echo "$(NAME_CH): $(RED)$(NAME_CH) deleted$(END)"
+	@rm -f $(NAME_VS)
+	@echo "$(NAME_VS): $(RED)$(NAME_VS) deleted$(END)"
 
 re:
 	@$(MAKE) fclean

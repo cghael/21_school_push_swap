@@ -23,6 +23,7 @@ static void	ft_mark_last_three(t_st **stacks)
 	{
 		if (tmp->index >= (*stacks)->qnty_a - 3)
 			tmp->stay = 1;
+		tmp = tmp->next;
 		counter--;
 	}
 }

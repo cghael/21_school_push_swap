@@ -19,7 +19,7 @@
 # define HEIGHT		1000
 # define WIDTH		1000
 
-# define GREY		0x333333
+# define GREY		0x777777
 # define YELLOW		0xF0D347
 
 typedef struct		s_vis
@@ -53,4 +53,4 @@ t_vis				*ft_get_vis(void);
 void				ft_draw(t_ps *push_swap, t_vis *vps);
 void				ft_draw_stacks(t_ps *push_swap, t_vis *vps);
 
-#endif //VISUAL_H
+#endif

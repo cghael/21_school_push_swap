@@ -12,6 +12,28 @@
 
 #include "visual.h"
 
+static void		ft_draw_line(t_vis *vps, t_line *current)
+{
+	int x;
+	int y;
+	int i;
+
+	x = current->x_start;
+	while (x < current->x_end)
+	{
+		y = current->y_start;
+		while (y < current->y_end)
+		{
+			i = (x * vps->bits_per_pixel / 8) + (y * vps->size_line);
+			vps->data_addr[i] = (char)YELLOW;
+			vps->data_addr[++i] = (char)(YELLOW >> 8);
+			vps->data_addr[++i] = (char)(YELLOW >> 16);
+			y++;
+		}
+		x++;
+	}
+}
+
 static t_line	*ft_create_line(int x_start, int x_end, int y_start, int y_end)
 {
 	t_line	*tmp;
@@ -43,10 +65,10 @@ static void		ft_draw_one_stack(t_ps *push_swap, t_vis *vps, t_elem *stack)
 	while (i < size)
 	{
 		if (!(current_line = ft_create_line(x_start, \
-						(x_start + stack->index + 1) * push_swap->width, \
+						x_start + (stack->index + 1) * push_swap->width, \
 						i * push_swap->height, (i + 1) * push_swap->height)))
 			ft_error_exit("Error in ft_draw_one_stack()\n", NULL);
-		ft_draw_line();
+		ft_draw_line(vps, current_line);
 		free(current_line);
 		stack = stack->next;
 		i++;
@@ -55,6 +77,8 @@ static void		ft_draw_one_stack(t_ps *push_swap, t_vis *vps, t_elem *stack)
 
 void			ft_draw_stacks(t_ps *push_swap, t_vis *vps)
 {
-	ft_draw_one_stack(push_swap, vps, push_swap->stacks->a);
-	ft_draw_one_stack(push_swap, vps, push_swap->stacks->b);
+	if (push_swap->stacks->a)
+		ft_draw_one_stack(push_swap, vps, push_swap->stacks->a);
+	if (push_swap->stacks->b)
+		ft_draw_one_stack(push_swap, vps, push_swap->stacks->b);
 }

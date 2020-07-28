@@ -27,9 +27,9 @@ void			ft_run_cmd(char *cmd, t_st **stacks, t_flags options)
 	else if (ft_strequ(cmd, "rrr"))
 		ft_rr_rrr(stacks, REVERSE);
 	else if (ft_strequ(cmd, "pa"))
-		ft_pa_pb(stacks, 'a');
-	else if (ft_strequ(cmd, "pb"))
 		ft_pa_pb(stacks, 'b');
+	else if (ft_strequ(cmd, "pb"))
+		ft_pa_pb(stacks, 'a');
 	else if (ft_strequ(cmd, "sa"))
 		ft_sa_sb(stacks, 'a');
 	else if (ft_strequ(cmd, "sb"))
