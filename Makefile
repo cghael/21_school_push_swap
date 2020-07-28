@@ -135,15 +135,15 @@ $(MINILIBX):
 	@$(MAKE) -C $(MINILIBX_DIRECTORY)
 
 clean:
+	@$(MAKE) -C $(LIBFT_DIR) clean
 	@$(MAKE) -C $(LIBFTPRINTF_DIR) clean
-	@$(MAKE) -C $(MINILIBX_DIRECTORY) clean
 	@rm -rf $(OBJ_DIR)
 	@echo "$(NAME_PS): $(RED)$(OBJ_DIR) deleted$(END)"
 	@echo "$(NAME_PS): $(RED)*.o files deleted$(END)"
 
 fclean: clean
-	@rm -f $(LIBFTPRINTF)
-	@rm -f $(LIBFT)
+	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(LIBFTPRINTF_DIR) fclean
 	@echo "$(NAME_PS): $(RED)$(LIBFTPRINTF) deleted$(END)"
 	@rm -f $(NAME_PS)
 	@echo "$(NAME_PS): $(RED)$(NAME_PS) deleted$(END)"
