@@ -17,21 +17,21 @@ static void	ft_print_line(int counter, t_elem **tmp, char ch, int c_flag)
 	if (counter > 0)
 	{
 		if (ch == 'a' && c_flag)
-			ft_printf("\e[1;34m%7d\e[m", (*tmp)->value);
+			ft_printf("\e[1;34m%11d\e[m", (*tmp)->value);
 		else if (ch == 'a')
-			ft_printf("%7d", (*tmp)->value);
+			ft_printf("%11d", (*tmp)->value);
 		else if (ch == 'b' && c_flag)
-			ft_printf("|\e[1;34m%7d\e[m\n", (*tmp)->value);
+			ft_printf("|\e[1;34m%11d\e[m\n", (*tmp)->value);
 		else
-			ft_printf("|%7d\n", (*tmp)->value);
+			ft_printf("|%11d\n", (*tmp)->value);
 		*tmp = (*tmp)->next;
 	}
 	else
 	{
 		if (ch == 'a')
-			ft_printf("       ");
+			ft_printf("           ");
 		else
-			ft_printf("|       \n");
+			ft_printf("|           \n");
 	}
 }
 
@@ -72,7 +72,7 @@ void		ft_print_stack_step(t_st *stacks, char *cmd, int color)
 	c_counter = 0;
 	counter_a = (stacks->a) ? stacks->qnty_a : 0;
 	counter_b = (stacks->b) ? stacks->qnty_b : 0;
-	ft_printf("STACK A|STACK B\n-------|-------\n");
+	ft_printf("  STACK A  |  STACK B  \n-----------|-----------\n");
 	while (counter_a > 0 || counter_b > 0)
 	{
 		if (stacks->a && color)
@@ -86,5 +86,5 @@ void		ft_print_stack_step(t_st *stacks, char *cmd, int color)
 		counter_b--;
 		c_counter++;
 	}
-	ft_printf("---------------\n\n");
+	ft_printf("-----------------------\n\n");
 }
