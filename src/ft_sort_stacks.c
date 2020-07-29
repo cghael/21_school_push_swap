@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_stack_sorted.c                            :+:      :+:    :+:   */
+/*   ft_sort_stacks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <cghael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/22 16:27:57 by cghael            #+#    #+#             */
-/*   Updated: 2020/06/25 13:30:55 by cghael           ###   ########.fr       */
+/*   Created: 2020/06/22 15:04:30 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/26 13:54:02 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			ft_check_stack_sorted(t_elem *stack, int qnty)
+void			ft_sort_stacks(t_st **stacks)
 {
-	t_elem	*tmp;
-	t_elem	*checked;
-
-	tmp = stack;
-	if (qnty < 2)
-		return (SORTED);
-	while (tmp->next != stack)
+	if (NOT_SORTED == ft_check_stack_sorted((*stacks)->a, (*stacks)->qnty_a))
 	{
-		checked = tmp->next;
-		if ((stack->name == 'a' && checked->value < tmp->value) \
-				|| (stack->name == 'b' && checked->value > tmp->value))
-			return (NOT_SORTED);
-		tmp = tmp->next;
+		if ((*stacks)->qnty_a <= 3)
+			ft_sort_two_three_elem(stacks);
+		else
+		{
+			ft_start_sorting(stacks);
+			if ((*stacks)->qnty_a == 3)
+				ft_sort_two_three_elem(stacks);
+			ft_get_stack_back(stacks);
+		}
 	}
-	return (SORTED);
 }

@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_stack.c                                    :+:      :+:    :+:   */
+/*   ft_count_rra_rrb.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 12:57:50 by cghael            #+#    #+#             */
-/*   Updated: 2020/07/21 12:57:54 by cghael           ###   ########.fr       */
+/*   Created: 2020/07/14 11:16:06 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/14 11:16:12 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_free_stack(t_elem *stack)
+void			ft_count_rra_rrb(t_st **stacks, t_steps **stp)
 {
+	int		counter_a;
+	int		counter_b;
 	t_elem	*tmp;
 
-	tmp = stack->back;
-	tmp->next = NULL;
-	while (stack)
+	counter_a = 0;
+	counter_b = 0;
+	tmp = (*stacks)->a;
+	while (tmp != (*stp)->y)
 	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
+		counter_a++;
+		tmp = tmp->back;
 	}
+	tmp = (*stacks)->b;
+	while (tmp != (*stp)->x)
+	{
+		counter_b++;
+		tmp = tmp->back;
+	}
+	if (counter_a >= counter_b)
+		(*stp)->var[2] = counter_a + 1;
+	else
+		(*stp)->var[2] = counter_b + 1;
 }

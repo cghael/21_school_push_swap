@@ -1,6 +1,14 @@
-//
-// Created by Anton on 15.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_multi_arg.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/21 12:59:24 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/21 12:59:26 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -32,8 +40,8 @@ static void		ft_check_args(char **argv, int argc)
 		i = 0;
 		while (argv[j][i] != '\0')
 		{
-			if ((argv[j][i] == '-' && NOT_A_NUMBER(argv[j][i + 1])) \
-				|| (argv[j][i] != '-' && NOT_A_NUMBER(argv[j][i])))
+			if ((argv[j][i] == '-' && NOT_A_NUMB(argv[j][i + 1])) || \
+				(argv[j][i] != '-' && NOT_A_NUMB(argv[j][i])))
 				ft_error_exit(ERR_ARGS, NULL);
 			i++;
 		}

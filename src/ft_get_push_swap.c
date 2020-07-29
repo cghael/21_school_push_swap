@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_stack.c                                    :+:      :+:    :+:   */
+/*   ft_get_push_swap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 12:57:50 by cghael            #+#    #+#             */
-/*   Updated: 2020/07/21 12:57:54 by cghael           ###   ########.fr       */
+/*   Created: 2020/07/27 13:33:27 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/27 13:33:28 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "visual.h"
 
-void		ft_free_stack(t_elem *stack)
+t_ps		*ft_get_push_swap(int argc, char *argv[])
 {
-	t_elem	*tmp;
+	t_ps	*tmp;
 
-	tmp = stack->back;
-	tmp->next = NULL;
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
+	tmp = ft_memalloc(sizeof(t_ps));
+	if (!tmp)
+		ft_error_exit("Error in ft_get_push_swap()\n", NULL);
+	tmp->stacks = ft_check_n_write_args(argc, argv);
+	tmp->width = WIDTH / 2 / tmp->stacks->qnty_a;
+	tmp->height = HEIGHT / tmp->stacks->qnty_a;
+	return (tmp);
 }

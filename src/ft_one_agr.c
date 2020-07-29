@@ -1,6 +1,14 @@
-//
-// Created by Anton on 15.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_one_agr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/21 13:00:23 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/21 13:00:25 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -52,9 +60,9 @@ static void		ft_check_str(const char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if ((str[i] == '-' && NOT_A_NUMBER(str[i + 1]))\
-			|| (i > 0 && str[i] == '-' && str[i - 1] != ' ')\
-			|| (str[i] != ' ' && str[i] != '-' && NOT_A_NUMBER(str[i])))
+		if ((str[i] == '-' && NOT_A_NUMB(str[i + 1])) || \
+			(i > 0 && str[i] == '-' && str[i - 1] != ' ') || \
+			(str[i] != ' ' && str[i] != '-' && NOT_A_NUMB(str[i])))
 			ft_error_exit(ERR_ARGS, NULL);
 		i++;
 	}

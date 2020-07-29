@@ -1,8 +1,16 @@
-//
-// Created by Anton on 04.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_check_n_write_args.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/25 13:22:30 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/25 13:22:37 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 static t_elem	*ft_elem_index(t_elem *stack)
 {
@@ -59,25 +67,26 @@ static void		ft_check_args_number(int argc)
 {
 	if (argc < 2)
 	{
-		ft_putstr(USAGE_PUSH_SWAP);
-		exit (ERROR_EXIT_CODE);
+		ft_putstr(USAGE_PS);
+		exit(ERROR_EXIT);
 	}
 }
 
-t_elem			*ft_check_n_write_args(int argc, char **argv)
+t_st			*ft_check_n_write_args(int argc, char **argv)
 {
-	t_elem *stack;
+	t_st	*stacks;
 
+	stacks = ft_create_t_st_elem();
 	ft_check_args_number(argc);
 	if (argc == 2)
-		stack = ft_one_agr(argv);
+		stacks->a = ft_one_agr(argv);
 	else
-		stack = ft_multi_arg(argv, argc);
-	stack->qnty = stack->back->index + 1;
-	if (stack->qnty > 1)
+		stacks->a = ft_multi_arg(argv, argc);
+	stacks->qnty_a = stacks->a->back->index + 1;
+	if (stacks->qnty_a > 1)
 	{
-		ft_check_args_uniq(stack);
-		stack = ft_elem_index(stack);
+		ft_check_args_uniq(stacks->a);
+		stacks->a = ft_elem_index(stacks->a);
 	}
-	return (stack);
+	return (stacks);
 }

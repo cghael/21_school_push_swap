@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_stack.c                                    :+:      :+:    :+:   */
+/*   ft_create_t_st_elem.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cghael <cghael@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 12:57:50 by cghael            #+#    #+#             */
-/*   Updated: 2020/07/21 12:57:54 by cghael           ###   ########.fr       */
+/*   Created: 2020/06/22 16:04:13 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/30 10:44:04 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_free_stack(t_elem *stack)
+t_st	*ft_create_t_st_elem(void)
 {
-	t_elem	*tmp;
+	t_st	*new;
 
-	tmp = stack->back;
-	tmp->next = NULL;
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
+	new = malloc(sizeof(t_st));
+	if (new == NULL)
+		ft_error_exit("Error malloc in ft_create_t_st_elem\n", NULL);
+	new->a = NULL;
+	new->b = NULL;
+	new->cmd = NULL;
+	new->qnty_a = 0;
+	new->qnty_b = 0;
+	return (new);
 }

@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_stack.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 12:57:50 by cghael            #+#    #+#             */
-/*   Updated: 2020/07/21 12:57:54 by cghael           ###   ########.fr       */
+/*   Created: 2020/06/22 14:51:12 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/25 13:15:03 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_free_stack(t_elem *stack)
+int			main(int argc, char *argv[])
 {
-	t_elem	*tmp;
+	t_st	*stacks;
 
-	tmp = stack->back;
-	tmp->next = NULL;
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
+	stacks = ft_check_n_write_args(argc, argv);
+	ft_sort_stacks(&stacks);
+	ft_print_operations(stacks->cmd);
+	ft_free_push_swap_mem(stacks);
+	return (0);
 }

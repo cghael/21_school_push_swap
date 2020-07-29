@@ -1,6 +1,14 @@
-//
-// Created by Anton on 04.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/14 14:57:53 by cghael            #+#    #+#             */
+/*   Updated: 2020/07/14 14:57:56 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -9,27 +17,25 @@
 ** --------------------------- Macros \ Static ---------------------------------
 */
 
-# define USAGE_PUSH_SWAP	"usage: ./push_swap args\n"
-# define ERROR_EXIT_CODE	1
-# define ERR_ARGS			"Error. Please, use only numbers and spaces.\n"
-# define ERR_UNIQ_ARGS		"Error. Please, enter UNIQUE args and try again.\n"
-# define NOT_A_NUMBER(x)	(x < 48 || x > 57)
+# define USAGE_PS		"usage: ./push_swap args | ./checker args\n"
+# define ERROR_EXIT		1
+# define ERR_ARGS		"Error\n"
+# define ERR_UNIQ_ARGS	"Error\n"
+# define NOT_A_NUMB(x)	(x < 48 || x > 57)
 
-# define STACK_SORTED		1
-# define STACK_NOT_SORTED	0
-# define ROTATE				1
-# define REVERSE_ROTATE		0
-# define NOT_EXIST			-1
-# define EXIST				1
-
-
+# define SORTED			1
+# define NOT_SORTED		0
+# define ROTATE			1
+# define REVERSE		0
+# define TRUE			1
+# define FALSE			0
 
 /*
 ** -------------------------- External Headers ---------------------------------
 */
 
 # include "ft_printf.h"
-# include "libft.h"
+# include "ft_get_next_line.h"
 
 /*
 ** ------------------------- Structures Definition -----------------------------
@@ -37,20 +43,44 @@
 
 typedef struct			s_elem
 {
-	int 				value;
+	int					value;
 	int					index;
-	int					qnty;
+	int					stay;
 	char				name;
 	struct s_elem		*next;
 	struct s_elem		*back;
 }						t_elem;
 
-typedef struct		s_order
+typedef struct			s_order
 {
-	char			command[4];
-	struct s_order	*next;
-	int				step_numb;
-}					t_order;
+	char				command[4];
+	struct s_order		*next;
+	int					step_numb;
+}						t_order;
+
+typedef struct			s_steps
+{
+	t_elem				*x;
+	t_elem				*y;
+	int					var[4];
+	int					min_value;
+	int					min_var;
+}						t_steps;
+
+typedef struct			s_st
+{
+	t_elem				*a;
+	int					qnty_a;
+	t_elem				*b;
+	int					qnty_b;
+	t_order				*cmd;
+}						t_st;
+
+typedef struct			s_flags
+{
+	int					visual;
+	int					color;
+}						t_flags;
 
 /*
 ** -----------------------------------------------------------------------------
@@ -58,33 +88,34 @@ typedef struct		s_order
 ** -----------------------------------------------------------------------------
 */
 
-t_elem					*ft_check_n_write_args(int argc, char **argv);
+t_st					*ft_create_t_st_elem(void);
+t_st					*ft_check_n_write_args(int argc, char **argv);
 t_elem					*ft_one_agr(char **argv);
 t_elem					*ft_multi_arg(char **argv, int argc);
 void					ft_new_elem_add(t_elem **stack, int numb);
 void					ft_free_stack(t_elem *stack);
-
-t_order					*ft_sort_stack_a(t_elem *stack_a);
-int						ft_check_stack_sorted(t_elem *stack);
-
+void					ft_start_sorting(t_st **stacks);
+void					ft_presort_stack(t_st **stacks);
+t_steps					*ft_choose_optimal_step(t_st **stacks);
+void					ft_count_steps(t_steps **stp, t_st **stacks);
+void					ft_count_ra_rb(t_st **stacks, t_steps **stp);
+void					ft_count_rra_rrb(t_st **stacks, t_steps **stp);
+void					ft_create_cmd(t_steps *tmp, t_st **stacks);
+void					ft_run_cmd(char *cmd, t_st **stacks, t_flags options);
+void					ft_get_stack_back(t_st **stacks);
+void					ft_min_steps_count(t_steps **tmp);
+void					ft_sort_stacks(t_st **stacks);
+int						ft_check_stack_sorted(t_elem *stack, int qnty);
 void					ft_new_order_add(t_order **cmd_stack, char *str);
 void					ft_free_cmd_stack(t_order *cmd_stack);
-
 void					ft_print_operations(t_order *cmd_stack);
-void					ft_free_push_swap_mem(t_order *cmd_stack,\
-												t_elem *stack_a);
+void					ft_free_push_swap_mem(t_st *stacks);
+void					ft_pa_pb(t_st **stacks, char src_name);
+void					ft_ra_rb(t_st **stacks, char stack_name);
+void					ft_rra_rrb(t_st **stacks, char stack_name);
+void					ft_rr_rrr(t_st **stacks, int side);
+void					ft_sa_sb(t_st **stacks, char stack_name);
+void					ft_print_stack_step(t_st *stacks, char *cmd, int color);
+void					ft_sort_two_three_elem(t_st **stacks);
 
-void					ft_pa_pb(t_order **cmd_stack, t_elem **src_stack, \
-								t_elem **dst_stack, char dst_ch);
-void					ft_ra_rb(t_order **cmd_stack, t_elem **stack, char ch);
-void					ft_rra_rrb(t_order **cmd_stack, t_elem **stack, \
-									char ch);
-void					ft_print_stack_step(t_elem *stack_a, t_elem *stack_b);
-void					ft_push_to_b_after_pivot(t_order **cmd_stack, \
-											t_elem **stack_a, t_elem **stack_b);
-t_elem					*ft_adjust_big_to_small_stack(t_order **cmd_stack, \
-											t_elem **stack, int index);
-int						ft_find_rotate_side(t_elem *stack, int tmp_index);
-int						ft_nearest_bigger_pivot(t_elem *stack, int pivot);
-
-#endif //PUSH_SWAP_H
+#endif

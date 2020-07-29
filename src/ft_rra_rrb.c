@@ -1,20 +1,27 @@
-//
-// Created by Anton on 25.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rra_rrb.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/23 13:22:11 by cghael            #+#    #+#             */
+/*   Updated: 2020/06/23 13:22:19 by cghael           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_rra_rrb(t_order **cmd_stack, t_elem **stack, char ch)
+void		ft_rra_rrb(t_st **stacks, char stack_name)
 {
-	t_elem *tmp;
-
-	tmp = (*stack)->back;
-	tmp->qnty = (*stack)->qnty;
-
-	(*stack)->qnty = 0;
-	*stack = tmp;
-	if (ch == 'a')
-		ft_new_order_add(cmd_stack, "rra");
+	if (stack_name == 'a')
+	{
+		(*stacks)->a = (*stacks)->a->back;
+		ft_new_order_add(&(*stacks)->cmd, "rra");
+	}
 	else
-		ft_new_order_add(cmd_stack, "rrb");
+	{
+		(*stacks)->b = (*stacks)->b->back;
+		ft_new_order_add(&(*stacks)->cmd, "rrb");
+	}
 }
