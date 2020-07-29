@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	ft_mark_last_three(t_st **stacks)
+static void		ft_mark_last_three(t_st **stacks)
 {
 	int		counter;
 	t_elem	*tmp;
@@ -28,7 +28,7 @@ static void	ft_mark_last_three(t_st **stacks)
 	}
 }
 
-static void	ft_mark_index(t_st **stacks, t_elem *first)
+static void		ft_mark_index(t_st **stacks, t_elem *first)
 {
 	t_elem	*tmp;
 	t_elem	*last;
@@ -52,7 +52,7 @@ static void	ft_mark_index(t_st **stacks, t_elem *first)
 	}
 }
 
-static int	ft_find_sequence(t_elem *first, int qnty)
+static int		ft_find_sequence(t_elem *first, int qnty)
 {
 	t_elem	*tmp;
 	t_elem	*last;

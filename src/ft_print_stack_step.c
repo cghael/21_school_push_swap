@@ -17,13 +17,13 @@ static void	ft_print_line(int counter, t_elem **tmp, char ch, int c_flag)
 	if (counter > 0)
 	{
 		if (ch == 'a' && c_flag)
-			ft_printf("\e[1;34m%7d\e[m", (*tmp)->index);
+			ft_printf("\e[1;34m%7d\e[m", (*tmp)->value);
 		else if (ch == 'a')
-			ft_printf("%7d", (*tmp)->index);
+			ft_printf("%7d", (*tmp)->value);
 		else if (ch == 'b' && c_flag)
-			ft_printf("|\e[1;34m%7d\e[m\n", (*tmp)->index);
+			ft_printf("|\e[1;34m%7d\e[m\n", (*tmp)->value);
 		else
-			ft_printf("|%7d\n", (*tmp)->index);
+			ft_printf("|%7d\n", (*tmp)->value);
 		*tmp = (*tmp)->next;
 	}
 	else
@@ -40,7 +40,7 @@ static int	ft_line_flag(int c_cnt, char *cmd, char name, int qnty)
 	if (name == 'a' && cmd)
 	{
 		if ((c_cnt == 0 && (ft_strequ(cmd, "ra") || ft_strequ(cmd, "rr") || \
-			ft_strequ(cmd, "pb"))) || (c_cnt < 2 && ft_strequ(cmd, "sa")) || \
+			ft_strequ(cmd, "pa"))) || (c_cnt < 2 && ft_strequ(cmd, "sa")) || \
 			(c_cnt == qnty - 1 && (ft_strequ(cmd, "rra") || \
 			ft_strequ(cmd, "rrr"))))
 			return (1);
@@ -50,7 +50,7 @@ static int	ft_line_flag(int c_cnt, char *cmd, char name, int qnty)
 	else if (cmd)
 	{
 		if ((c_cnt == 0 && (ft_strequ(cmd, "rb") || ft_strequ(cmd, "rr") || \
-			ft_strequ(cmd, "pa"))) || (c_cnt < 2 && ft_strequ(cmd, "sb")) || \
+			ft_strequ(cmd, "pb"))) || (c_cnt < 2 && ft_strequ(cmd, "sb")) || \
 			(c_cnt == qnty - 1 && (ft_strequ(cmd, "rrr") || \
 			ft_strequ(cmd, "rrb"))))
 			return (1);
