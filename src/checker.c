@@ -50,6 +50,7 @@ static void		ft_checker(t_st **stacks, t_flags options)
 		ft_free_push_swap_mem(*stacks);
 		ft_error_exit("Error in ft_get_next_line()\n", NULL);
 	}
+	free(line);
 	if ((*stacks)->b == NULL && \
 						ft_check_stack_sorted((*stacks)->a, (*stacks)->qnty_a))
 		ft_printf("\e[1;32mOK\e[m\n");
