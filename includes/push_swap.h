@@ -117,5 +117,6 @@ void					ft_rr_rrr(t_st **stacks, int side);
 void					ft_sa_sb(t_st **stacks, char stack_name);
 void					ft_print_stack_step(t_st *stacks, char *cmd, int color);
 void					ft_sort_two_three_elem(t_st **stacks);
+int						ft_max_min_int(char *str);
 
 #endif

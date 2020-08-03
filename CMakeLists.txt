@@ -31,7 +31,7 @@ set(SOURCES_PS src/push_swap.c
         src/ft_count_rra_rrb.c
         src/ft_presort_stack.c
         src/ft_min_steps_count.c
-        src/ft_create_cmd.c)
+        src/ft_create_cmd.c src/ft_max_min_int.c)
 
 set(SOURCES_CH src/checker.c
         src/ft_check_n_write_args.c
@@ -50,7 +50,7 @@ set(SOURCES_CH src/checker.c
         src/ft_sa_sb.c
         src/ft_rr_rrr.c
         src/ft_check_stack_sorted.c
-        src/ft_new_order_add.c)
+        src/ft_new_order_add.c src/ft_max_min_int.c)
 
 set(SOURCES_V src/visual.c
         src/ft_get_push_swap.c
@@ -72,7 +72,7 @@ set(SOURCES_V src/visual.c
         src/ft_sa_sb.c
         src/ft_rr_rrr.c
         src/ft_check_stack_sorted.c
-        src/ft_new_order_add.c src/ft_draw_stacks.c)
+        src/ft_new_order_add.c src/ft_draw_stacks.c src/ft_max_min_int.c)
 
 include_directories(includes)
 include_directories(ft_printf/includes)

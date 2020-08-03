@@ -53,9 +53,9 @@ static void		ft_checker(t_st **stacks, t_flags options)
 	free(line);
 	if ((*stacks)->b == NULL && \
 						ft_check_stack_sorted((*stacks)->a, (*stacks)->qnty_a))
-		ft_printf("\e[1;32mOK\e[m\n");
+		ft_printf("OK\n");
 	else
-		ft_printf("\e[1;31mKO\e[m\n");
+		ft_printf("KO\n");
 	ft_free_push_swap_mem(*stacks);
 }
 

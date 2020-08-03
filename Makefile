@@ -71,7 +71,8 @@ SRC_LIST = ft_check_n_write_args.c \
            ft_get_push_swap.c \
            ft_get_vis.c \
            ft_draw.c \
-           ft_draw_stacks.c
+           ft_draw_stacks.c \
+           ft_max_min_int.c
 SRC_LIST_PS = push_swap.c
 SRC_LIST_CH = checker.c
 SRC_LIST_VS = visual.c

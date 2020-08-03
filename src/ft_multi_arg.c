@@ -22,6 +22,8 @@ static t_elem	*ft_write_multi_args(char **argv, int argc)
 	stack = NULL;
 	while (j < argc)
 	{
+		if (ft_max_min_int(argv[j]) < 0)
+			ft_error_exit("Error\n", NULL);
 		numb = ft_atoi(argv[j]);
 		ft_new_elem_add(&stack, numb);
 		j++;
@@ -38,10 +40,11 @@ static void		ft_check_args(char **argv, int argc)
 	while (j < argc)
 	{
 		i = 0;
+		if (argv[j][0] == '-' || argv[j][0] == '+')
+			i++;
 		while (argv[j][i] != '\0')
 		{
-			if ((argv[j][i] == '-' && NOT_A_NUMB(argv[j][i + 1])) || \
-				(argv[j][i] != '-' && NOT_A_NUMB(argv[j][i])))
+			if (NOT_A_NUMB(argv[j][i]))
 				ft_error_exit(ERR_ARGS, NULL);
 			i++;
 		}
