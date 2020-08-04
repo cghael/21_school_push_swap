@@ -150,7 +150,6 @@ clean:
 fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@$(MAKE) -C $(LIBFTPRINTF_DIR) fclean
-	@echo "$(NAME_PS): $(RED)$(LIBFTPRINTF) deleted$(END)"
 	@rm -f $(NAME_PS)
 	@echo "$(NAME_PS): $(RED)$(NAME_PS) deleted$(END)"
 	@rm -f $(NAME_CH)
