@@ -16,12 +16,14 @@ void		ft_rra_rrb(t_st **stacks, char stack_name)
 {
 	if (stack_name == 'a')
 	{
-		(*stacks)->a = (*stacks)->a->back;
+		if ((*stacks)->a)
+			(*stacks)->a = (*stacks)->a->back;
 		ft_new_order_add(&(*stacks)->cmd, "rra");
 	}
 	else
 	{
-		(*stacks)->b = (*stacks)->b->back;
+		if ((*stacks)->b)
+			(*stacks)->b = (*stacks)->b->back;
 		ft_new_order_add(&(*stacks)->cmd, "rrb");
 	}
 }

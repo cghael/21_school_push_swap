@@ -43,6 +43,8 @@ void			ft_run_cmd(char *cmd, t_st **stacks, t_flags options)
 		ft_sa_sb(stacks, 'a');
 	else if (ft_strequ(cmd, "sb"))
 		ft_sa_sb(stacks, 'b');
+	else if (ft_strequ(cmd, "ss"))
+		ft_sa_sb(stacks, 'x');
 	else
 		ft_error_exit("Error\n", NULL);
 	ft_visual_print(cmd, stacks, options);

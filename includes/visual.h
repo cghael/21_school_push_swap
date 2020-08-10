@@ -16,8 +16,8 @@
 # include "push_swap.h"
 # include "mlx.h"
 
-# define HEIGHT		1000
-# define WIDTH		1000
+# define HEIGHT		500
+# define WIDTH		500
 
 # define GREY		0x777777
 # define YELLOW		0xF0D347

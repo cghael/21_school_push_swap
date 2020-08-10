@@ -89,7 +89,7 @@ typedef struct			s_flags
 */
 
 t_st					*ft_create_t_st_elem(void);
-t_st					*ft_check_n_write_args(int argc, char **argv);
+t_st					*ft_check_n_write_args(int argc, char **argv, int ps);
 t_elem					*ft_one_agr(char **argv);
 t_elem					*ft_multi_arg(char **argv, int argc);
 void					ft_new_elem_add(t_elem **stack, int numb);

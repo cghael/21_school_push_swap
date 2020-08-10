@@ -36,9 +36,15 @@ void		ft_sa_sb(t_st **stacks, char stack_name)
 		ft_swap_top_two_elem(&(*stacks)->a);
 		ft_new_order_add(&(*stacks)->cmd, "_sa");
 	}
-	else
+	else if (stack_name == 'b')
 	{
 		ft_swap_top_two_elem(&(*stacks)->b);
 		ft_new_order_add(&(*stacks)->cmd, "_sb");
+	}
+	else
+	{
+		ft_swap_top_two_elem(&(*stacks)->a);
+		ft_swap_top_two_elem(&(*stacks)->b);
+		ft_new_order_add(&(*stacks)->cmd, "_ss");
 	}
 }

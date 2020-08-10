@@ -129,7 +129,7 @@ $(OBJ_DIR):
 	@echo "$(NAME_PS): $(GRN)$(OBJ_DIR) created$(END)"
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADERS)
-	@$(CC) $(FLAGS) -c $(INCLUDES_PS) $< -o $@
+	@$(CC) $(FLAGS) -c $(INCLUDES_PS) $(INCLUDES_MLX) $< -o $@
 	@echo "$(GRN).$(END)\c"
 
 $(LIBFTPRINTF):

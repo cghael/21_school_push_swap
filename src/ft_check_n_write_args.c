@@ -63,21 +63,22 @@ static void		ft_check_args_uniq(t_elem *stack)
 	}
 }
 
-static void		ft_check_args_number(int argc)
+static void		ft_check_args_number(int argc, int ps)
 {
 	if (argc < 2)
 	{
-		ft_putstr(USAGE_PS);
+		if (ps)
+			ft_putstr(USAGE_PS);
 		exit(ERROR_EXIT);
 	}
 }
 
-t_st			*ft_check_n_write_args(int argc, char **argv)
+t_st			*ft_check_n_write_args(int argc, char **argv, int ps)
 {
 	t_st	*stacks;
 
 	stacks = ft_create_t_st_elem();
-	ft_check_args_number(argc);
+	ft_check_args_number(argc, ps);
 	if (argc == 2)
 		stacks->a = ft_one_agr(argv);
 	else

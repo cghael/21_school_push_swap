@@ -70,7 +70,7 @@ int				main(int argc, char *argv[])
 		argc--;
 		argv++;
 	}
-	stacks = ft_check_n_write_args(argc, argv);
+	stacks = ft_check_n_write_args(argc, argv, 0);
 	ft_checker(&stacks, options);
 	return (0);
 }
