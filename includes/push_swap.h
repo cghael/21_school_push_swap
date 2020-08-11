@@ -17,7 +17,8 @@
 ** --------------------------- Macros \ Static ---------------------------------
 */
 
-# define USAGE_PS		"usage: ./push_swap args | ./checker args\n"
+# define USAGE_PS		"usage: ./push_swap args\n"
+# define USAGE_CH		"usage: ./checker args\n"
 # define ERROR_EXIT		1
 # define ERR_ARGS		"Error\n"
 # define ERR_UNIQ_ARGS	"Error\n"

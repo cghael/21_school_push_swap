@@ -69,6 +69,8 @@ static void		ft_check_args_number(int argc, int ps)
 	{
 		if (ps)
 			ft_putstr(USAGE_PS);
+		else
+			ft_putstr(USAGE_CH);
 		exit(ERROR_EXIT);
 	}
 }
