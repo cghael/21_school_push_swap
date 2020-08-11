@@ -23,6 +23,7 @@
 # define ERR_ARGS		"Error\n"
 # define ERR_UNIQ_ARGS	"Error\n"
 # define NOT_A_NUMB(x)	(x < 48 || x > 57)
+# define IS_A_NUMB(x)	(x >= 48 && x <= 57)
 
 # define SORTED			1
 # define NOT_SORTED		0

@@ -40,7 +40,7 @@ static void		ft_check_args(char **argv, int argc)
 	while (j < argc)
 	{
 		i = 0;
-		if (argv[j][0] == '-' || argv[j][0] == '+')
+		if ((argv[j][0] == '-' || argv[j][0] == '+') && argv[j][1] != '\0')
 			i++;
 		while (argv[j][i] != '\0')
 		{
